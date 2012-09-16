@@ -1,0 +1,1 @@
+ls -1 | xargs -d '\n' grep 'foo'

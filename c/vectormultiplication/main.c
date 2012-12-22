@@ -1,89 +1,77 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 
-int MultiplicateMatrix(int* LeftMatrix, int LeftMatrixWidth, int LeftMatrixHeight, int* RightMatrix, int RightMatrixWidth, int RightMatrixHeight, int* OutMatrix) {
+typedef struct {
+  int* matrix;
+  int rows;
+  int columns;
+} MatrixInfo;
 
-    int matrixWidth = LeftMatrixWidth;
-    int matrixHeight = LeftMatrixHeight;
+void MultiplyMatricesOnHost(
+  MatrixInfo* left_matrix,
+  MatrixInfo* right_matrix,
+  MatrixInfo* result_matrix
+);
 
-    if(RightMatrixWidth > matrixWidth) {
-        matrixWidth = RightMatrixWidth;
+int main(int argc, char* argv[]) {
+  int left_matrix[3][3] = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9},
+  };
+
+  int right_matrix[3][2] = {
+    {9, 8},
+    {7, 6},
+    {5, 4},
+  };
+
+  int result_matrix[3][2];
+
+  MatrixInfo left_matrix_info = {(int*)&left_matrix, 3, 3};
+  MatrixInfo right_matrix_info = {(int*)&right_matrix, 3, 2};
+  MatrixInfo result_matrix_info = {(int*)&result_matrix, 3, 2};
+
+  MultiplyMatricesOnHost(
+    &left_matrix_info,
+    &right_matrix_info,
+    &result_matrix_info
+  );
+
+  int i, j;
+  for (i = 0; i < result_matrix_info.rows; i++) {
+    for (j = 0; j < result_matrix_info.columns; j++) {
+      printf("%3d", result_matrix[i][j]);
+
+      if (j < result_matrix_info.columns - 1) {
+        printf("\t");
+      }
     }
-
-    if(RightMatrixHeight > matrixHeight) {
-        matrixHeight = RightMatrixHeight;
-    }
-
-    int outMatrixLength = LeftMatrixWidth;
-    if(RightMatrixWidth < LeftMatrixWidth) {
-        outMatrixLength = RightMatrixWidth;
-        if(LeftMatrixHeight < RightMatrixHeight) {
-            if(LeftMatrixHeight < outMatrixLength) {
-                outMatrixLength = LeftMatrixHeight;
-            }
-        }
-    }
-
-    int columnNumber, rowNumber = 0;
-    for(columnNumber = 0; columnNumber < matrixWidth; columnNumber++) {
-        if ((columnNumber < LeftMatrixWidth) && (columnNumber < RightMatrixWidth)) {
-            for(rowNumber = 0; rowNumber < matrixHeight; rowNumber++) {
-                if((rowNumber < LeftMatrixHeight) && (rowNumber < RightMatrixHeight)) {
-                    int k = 0;
-                    int multiplicationSum = 0;
-                    for (k = 0; k < matrixWidth; k++) {
-                        int leftIndex = rowNumber * LeftMatrixWidth + k;
-                        int leftValue = LeftMatrix[leftIndex];
-                        printf("leftIndex is %d * %d + %d = %d with leftValue %d\n", rowNumber, LeftMatrixWidth, k, leftIndex, leftValue);
-
-                        int rightIndex = k * RightMatrixWidth + columnNumber;
-                        int rightValue = RightMatrix[rightIndex];
-                        printf("right index is %d * %d + %d = %d with rightValue %d\n", k, RightMatrixWidth, columnNumber, rightIndex, rightValue);
-
-                        multiplicationSum += (leftValue * rightValue);
-                        printf("%d\n", multiplicationSum);
-                    }
-                    OutMatrix[rowNumber * outMatrixLength + columnNumber] = multiplicationSum;
-                    printf("\n");
-                }
-            }
-        }
-        printf("\n\n");
-    }
-    return matrixWidth;
+    printf("\n");
+  }
 }
 
-void DisplayMatrix(int* Matrix, int MatrixWidth, int MatrixHeight) {
-    int i, j;
-    for(i = 0; i < MatrixWidth; i++)
-    {
-        for(j = 0; j < MatrixHeight; j++)
-        {
-            printf("|%d|", Matrix[j*MatrixWidth+i]);
-        }
-        printf("\n");
+void MultiplyMatricesOnHost(
+  MatrixInfo* left_matrix,
+  MatrixInfo* right_matrix,
+  MatrixInfo* result_matrix
+) {
+  int left_matrix_row, right_matrix_column, key;
+  for (left_matrix_row = 0; left_matrix_row < left_matrix->rows; left_matrix_row++) {
+    for (right_matrix_column = 0; right_matrix_column < right_matrix->columns; right_matrix_column++) {
+      int multiplication_sum = 0;
+
+      for (key = 0; key < right_matrix->rows; key++) {
+        multiplication_sum +=
+          left_matrix->matrix[left_matrix_row * left_matrix->columns + key] *
+          right_matrix->matrix[key * right_matrix->columns + right_matrix_column];
+      }
+
+      int result_key = left_matrix_row * result_matrix->columns
+        + right_matrix_column;
+
+      result_matrix->matrix[result_key] = multiplication_sum;
     }
+  }
 }
-
-int main(void) {
-
-    int leftMatrix[2][3] = { {1,2,3}, {4,5,6}};
-    int leftMatrixWidth = 3;
-    int leftMatrixHeight = 2;
-
-    int rightMatrix[3][2] = { {7,8}, {9,10}, {11,12} };
-    int rightMatrixWidth = 2;
-    int rightMatrixHeight = 3;
-
-    int* outMatrix = malloc(2*2*sizeof(int));
-
-    int outMatrixLength = MultiplicateMatrix(&leftMatrix, leftMatrixWidth, leftMatrixHeight, &rightMatrix, rightMatrixWidth, rightMatrixHeight, outMatrix);
-
-    if(outMatrix != 0) {
-        DisplayMatrix(outMatrix, 2, 2);
-        free(outMatrix);
-    }
-
-    return 0;
-}
-

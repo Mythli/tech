@@ -27,7 +27,7 @@ public class ConfigurationDataProviderTest extends ConfigurationProviderAbstract
         returnConfigurationData.startDate.setTime(formatter.parse("2012-6-11"));
         returnConfigurationData.endDate = new GregorianCalendar();
         
-        returnConfigurationData.schoolDays = new ArrayList<Integer>();
+        returnConfigurationData.schoolDays = new boolean[];
         
         
         return  returnConfigurationData;

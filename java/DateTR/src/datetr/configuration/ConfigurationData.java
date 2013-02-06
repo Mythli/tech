@@ -17,7 +17,7 @@ public class ConfigurationData {
     public Calendar startDate;
     public Calendar endDate;
     
-    public boolean schoolDays;
+    public boolean[] schoolDays;
     
     public String parseDateFormat;
     public String printDateFormat;

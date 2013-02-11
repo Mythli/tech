@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package datetr.configuration;
+package datetr.data;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -14,11 +14,12 @@ import java.util.List;
  * @author tobias
  */
 public class ConfigurationData {
-    public Calendar startDate;
-    public Calendar endDate;
+    public String startDate;
+    public String endDate;
     
     public boolean[] schoolDays;
+    public ArrayList<TrainingBreakData> trainingBreakList;
     
-    public String parseDateFormat;
-    public String printDateFormat;
+    public String inDateFormat;
+    public String outDateFormat;
 }

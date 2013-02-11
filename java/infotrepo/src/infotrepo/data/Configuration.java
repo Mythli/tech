@@ -19,7 +19,7 @@ public class Configuration extends TimeSpan {
     private DateFormat outDateFormat = DateFormat.getInstance();
     private ArrayList<TrainingBreak> trainingBreakList = new ArrayList<>();
     
-    public Configuration() throws ParseException {
+    public Configuration() throws ParseException {    
     }
     
     public Configuration(ConfigurationData data) throws ParseException {
@@ -43,6 +43,7 @@ public class Configuration extends TimeSpan {
         this.setOutDateFormat(new SimpleDateFormat(data.outDateFormat));
         this.setData((TimeSpanData)data);
         this.setTrainingBreakListData(data.trainingBreakList);
+        
         this.data = data;
     }
 

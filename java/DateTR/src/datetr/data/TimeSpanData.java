@@ -10,8 +10,8 @@ import java.util.GregorianCalendar;
  */
 public class TimeSpanData {
     public TimeSpanData() {
-        this.startDate = "1.1.2000";
-        this.endDate = "1.1.2000";
+        this.startDate = "";
+        this.endDate = "";
     }
     
     public TimeSpanData(String startDate, String endDate) {
@@ -19,6 +19,6 @@ public class TimeSpanData {
         this.endDate = endDate;
     }
     
-    public String startDate;
-    public String endDate;
+    public String startDate = "";
+    public String endDate = "";
 }

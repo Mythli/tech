@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package datetr.data;
+package infotrepo.data;
 import java.text.ParseException;
 import java.util.GregorianCalendar;
 /**
@@ -10,10 +10,9 @@ import java.util.GregorianCalendar;
  * @author Tobias
  */
 public class TrainingBreak extends TimeSpan {
-    private TrainingBreakData data;
+    private TrainingBreakData data = new TrainingBreakData();
    
     public TrainingBreak() throws ParseException {
-        this.setData(new TrainingBreakData());
     }
     
     public TrainingBreak(TrainingBreakData data) throws ParseException {
@@ -40,7 +39,7 @@ public class TrainingBreak extends TimeSpan {
      * @param data the data to set
      */
     public void setData(TrainingBreakData data) throws ParseException {
-        this.setData(new TimeSpanData(data.startDate, data.endDate));
+        this.setData((TimeSpanData)data);
         this.data = data;
     }
 }

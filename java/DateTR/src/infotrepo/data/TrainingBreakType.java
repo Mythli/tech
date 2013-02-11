@@ -2,12 +2,15 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package datetr.data;
+package infotrepo.data;
 
 /**
  *
  * @author Tobias
  */
-public class XmlConfigurationProvider {
-    
+public enum TrainingBreakType {
+    HOLIDAY,
+    SCHOOL_HOLIDAY,
+    ILL,
+    OTHER
 }

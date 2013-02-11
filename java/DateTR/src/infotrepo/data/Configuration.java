@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package datetr.data;
+package infotrepo.data;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,15 +13,15 @@ import java.util.ArrayList;
  *
  * @author Tobias
  */
-public class Configuration {
+public class Configuration extends TimeSpan {
     private ConfigurationData data;
     private DateFormat inDateFormat;
     private DateFormat outDateFormat;
     private GregorianCalendar startDate;
     private GregorianCalendar endDate;
-    private ArrayList<TrainingBreak> trainingBreakList;
+    private ArrayList<TrainingBreak> trainingBreakList = new ArrayList<>();
     
-    public Configuration() {
+    public Configuration() throws ParseException {
     }
     
     public Configuration(ConfigurationData data) throws ParseException {
@@ -29,36 +29,9 @@ public class Configuration {
     }
     
     /**
-     * @return the startDate
-     */
-    public GregorianCalendar getStartDate() {
-        return startDate;
-    }
-
-    /**
-     * @param startDate the startDate to set
-     */
-    public void setStartDate(GregorianCalendar startDate) {
-        this.startDate = startDate;
-    }
-
-    /**
-     * @return the endDate
-     */
-    public GregorianCalendar getEndDate() {
-        return endDate;
-    }
-
-    /**
-     * @param endDate the endDate to set
-     */
-    public void setEndDate(GregorianCalendar endDate) {
-        this.endDate = endDate;
-    }
-
-    /**
      * @return the data
      */
+    @Override
     public ConfigurationData getData() {
         return data;
     }
@@ -68,15 +41,9 @@ public class Configuration {
      */
     public void setData(ConfigurationData data) throws ParseException {
         this.setInDateFormat(new SimpleDateFormat(data.inDateFormat));
-        GregorianCalendar startDate = new GregorianCalendar();
-        startDate.setTime(this.getInDateFormat().parse(data.startDate));
-        this.setStartDate(startDate);
         this.setOutDateFormat(new SimpleDateFormat(data.outDateFormat));
-        GregorianCalendar endDate = new GregorianCalendar();
-        endDate.setTime(this.getInDateFormat().parse(data.endDate));
-        this.setEndDate(endDate);      
-        
-        //this.setTrainingBreakListData(data.trainingBreakList);
+        this.setData((TimeSpanData)data);
+        this.setTrainingBreakListData(data.trainingBreakList);
         this.data = data;
     }
 
@@ -124,12 +91,7 @@ public class Configuration {
     
     public void setTrainingBreakListData(ArrayList<TrainingBreakData> trainingBreakList) throws ParseException {
         for(TrainingBreakData trainingBreakData: trainingBreakList) {
-            GregorianCalendar trainingBreakStartDate = new GregorianCalendar();
-            trainingBreakStartDate.setTime(this.getInDateFormat().parse(trainingBreakData.startDate));
-            GregorianCalendar trainingBreakEndDate = new GregorianCalendar();
-            trainingBreakEndDate.setTime(this.getInDateFormat().parse(trainingBreakData.endDate));
-            
-            //this.getTrainingBreakList().add(new TrainingBreak(trainingBreakData, trainingBreakStartDate, trainingBreakEndDate));
+            this.trainingBreakList.add(new TrainingBreak(trainingBreakData));
         }
     }
 }

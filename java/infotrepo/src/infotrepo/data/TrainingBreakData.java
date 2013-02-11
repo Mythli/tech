@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 package infotrepo.data;
-import java.util.GregorianCalendar;
+import java.util.ArrayList;
 
 /**
  *
@@ -12,6 +12,8 @@ import java.util.GregorianCalendar;
 public class TrainingBreakData extends TimeSpanData {
     public String description = "";
     public TrainingBreakType type = TrainingBreakType.OTHER;
+    public boolean hasSchoolDays = false;
+    public ArrayList<SchoolDayData> schoolDayList = new ArrayList<>();
     
     public TrainingBreakData() {
         

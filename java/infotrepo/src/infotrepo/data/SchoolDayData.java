@@ -18,8 +18,9 @@ public class SchoolDayData {
         
     }
     
-    public SchoolDayData(boolean isSchoolDay, ArrayList<String> subjectList) {
+    public SchoolDayData(boolean isSchoolDay, int dayNr, ArrayList<String> subjectList) {
         this.isSchoolDay = isSchoolDay;
+        this.dayNr = dayNr;
         this.lessonSubjectList = subjectList;
     }
 }

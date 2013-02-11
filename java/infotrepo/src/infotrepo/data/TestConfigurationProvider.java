@@ -16,20 +16,33 @@ import java.text.SimpleDateFormat;
 public class TestConfigurationProvider extends AbstractConfigurationProvider {
     public @Override ConfigurationData getConfigurationData() throws ConfigurationProviderIOException {
         ConfigurationData configurationData = new ConfigurationData();
-
+        
         configurationData.inDateFormat = "dd.mm.yyy";
         configurationData.outDateFormat = configurationData.inDateFormat;
 
         configurationData.startDate = "6.11.2012";
         configurationData.endDate = "31.7.2014";
-
+        
+        configurationData.isBlockInstruction = true;
+        
         configurationData.trainingBreakList = new ArrayList<TrainingBreakData>();
-        TrainingBreakData tbData = new TrainingBreakData();
-        tbData.type = TrainingBreakType.ILL;
-        tbData.description = "Bronchitis";
-        tbData.startDate = "7.2.2013";
-        tbData.endDate = "8.2.2013";
-        configurationData.trainingBreakList.add(tbData);
+        
+        configurationData.trainingBreakList.add(new TrainingBreakData(TrainingBreakType.ILL, "Bronchitis", "7.2.2013", "8.2.2013"));
+        
+        TrainingBreakData school = new TrainingBreakData(TrainingBreakType.ILL, "Berufsschule", "1.1.2013", "1.2.2013");
+        school.hasSchoolDays = true;
+        ArrayList<String> schoolLessons = new ArrayList<>();
+        schoolLessons.add("ITN");
+        schoolLessons.add("ITN");
+        schoolLessons.add("AWE");
+        schoolLessons.add("AWE");
+        schoolLessons.add("AWE");
+        schoolLessons.add("RELI");
+        schoolLessons.add("WGP");
+        SchoolDayData schoolDayData = new SchoolDayData(true, GregorianCalendar.MONDAY, schoolLessons);
+        school.schoolDayList.add(schoolDayData);
+        configurationData.trainingBreakList.add(school);
+        
         return  configurationData;
     }
 

@@ -14,9 +14,10 @@ import java.util.List;
  * @author tobias
  */
 public class ConfigurationData extends TimeSpanData {
-    public boolean[] schoolDays;
-    public ArrayList<TrainingBreakData> trainingBreakList;
+    public ArrayList<SchoolDayData> schoolDayList = new ArrayList<>();
+    public ArrayList<TrainingBreakData> trainingBreakList = new ArrayList<>();
     
-    public String inDateFormat;
-    public String outDateFormat;
+    public String inDateFormat = "dd-mm-yyy";
+    public String outDateFormat = "dd-mm-yyy";
+    public boolean isBlockInstruction = false;
 }

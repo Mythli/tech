@@ -22,7 +22,6 @@ public class TestConfigurationProvider extends AbstractConfigurationProvider {
                
         configurationData.startDate = "6.11.2012";
         configurationData.endDate = "31.7.2014";
-        configurationData.schoolDays = new boolean[7];
         
         configurationData.trainingBreakList = new ArrayList<TrainingBreakData>();
         TrainingBreakData tbData = new TrainingBreakData();

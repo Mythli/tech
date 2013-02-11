@@ -11,6 +11,7 @@ package infotrepo.data;
 public enum TrainingBreakType {
     HOLIDAY,
     SCHOOL_HOLIDAY,
+    SCHOOL_BLOCK,
     ILL,
     OTHER
 }

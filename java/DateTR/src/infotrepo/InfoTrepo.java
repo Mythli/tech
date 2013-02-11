@@ -26,9 +26,6 @@ public class InfoTrepo {
         }
         
         try { 
-            TrainingBreakData data = new TrainingBreakData();
-            //TrainingBreak trainingBreak = new TrainingBreak(data);
-            int a = 5;
         } catch (Exception ex)
         {
             

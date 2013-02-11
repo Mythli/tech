@@ -14,11 +14,9 @@ import java.util.ArrayList;
  * @author Tobias
  */
 public class Configuration extends TimeSpan {
-    private ConfigurationData data;
-    private DateFormat inDateFormat;
-    private DateFormat outDateFormat;
-    private GregorianCalendar startDate;
-    private GregorianCalendar endDate;
+    private ConfigurationData data = new ConfigurationData();
+    private DateFormat inDateFormat = DateFormat.getDateInstance();
+    private DateFormat outDateFormat = DateFormat.getInstance();
     private ArrayList<TrainingBreak> trainingBreakList = new ArrayList<>();
     
     public Configuration() throws ParseException {
@@ -41,6 +39,7 @@ public class Configuration extends TimeSpan {
      */
     public void setData(ConfigurationData data) throws ParseException {
         this.setInDateFormat(new SimpleDateFormat(data.inDateFormat));
+        this.setDateFormat(inDateFormat);
         this.setOutDateFormat(new SimpleDateFormat(data.outDateFormat));
         this.setData((TimeSpanData)data);
         this.setTrainingBreakListData(data.trainingBreakList);
@@ -91,7 +90,7 @@ public class Configuration extends TimeSpan {
     
     public void setTrainingBreakListData(ArrayList<TrainingBreakData> trainingBreakList) throws ParseException {
         for(TrainingBreakData trainingBreakData: trainingBreakList) {
-            this.trainingBreakList.add(new TrainingBreak(trainingBreakData));
+            this.trainingBreakList.add(new TrainingBreak(this.inDateFormat, trainingBreakData));
         }
     }
 }

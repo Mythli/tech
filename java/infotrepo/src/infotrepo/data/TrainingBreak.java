@@ -16,18 +16,9 @@ public class TrainingBreak extends TimeSpan {
     public TrainingBreak() throws ParseException {
     }
     
-    public TrainingBreak(DateFormat format, TrainingBreakData data) throws ParseException {
-        this.setDateFormat(format);
+    public TrainingBreak(DateFormat dateFormat, TrainingBreakData data) throws ParseException {
+        this.setDateFormat(dateFormat);
         this.setData(data);
-    }
-    
-    public TrainingBreak(TrainingBreakType type, String description, DateFormat format, GregorianCalendar startDate, GregorianCalendar endDate) throws ParseException {
-        this.setData(new TrainingBreakData());
-        this.data.type = type;
-        this.data.description = description;
-        this.setDateFormat(format);
-        this.setStartDate(startDate);
-        this.setEndDate(endDate);
     }
     
     /**
@@ -42,7 +33,7 @@ public class TrainingBreak extends TimeSpan {
      * @param data the data to set
      */
     public void setData(TrainingBreakData data) throws ParseException {
-        this.setData((TimeSpanData)data);
+        this.setData((SchoolSpanData)data);
         this.data = data;
     }
 }

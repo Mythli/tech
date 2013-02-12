@@ -42,10 +42,8 @@ public class Configuration extends TimeSpan {
         this.setInDateFormat(new SimpleDateFormat(data.inDateFormat));
         this.setDateFormat(inDateFormat);
         this.setOutDateFormat(new SimpleDateFormat(data.outDateFormat));
-        this.setData((TimeSpanData)data);
-        this.setTrainingBreakListData(data.trainingBreakList);
-        
-        
+        this.setData((SchoolSpanData)data);
+        this.setTrainingBreakListData(data.trainingBreakList);   
         
         this.data = data;
     }
@@ -93,6 +91,8 @@ public class Configuration extends TimeSpan {
     }
     
     public void setTrainingBreakListData(ArrayList<TrainingBreakData> trainingBreakList) throws ParseException {
+        this.trainingBreakList.clear();
+        
         for(TrainingBreakData trainingBreakData: trainingBreakList) {
             this.trainingBreakList.add(new TrainingBreak(this.inDateFormat, trainingBreakData));
         }

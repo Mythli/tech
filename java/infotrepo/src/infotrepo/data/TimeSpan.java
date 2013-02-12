@@ -21,7 +21,7 @@ public class TimeSpan {
         this.setData(new TimeSpanData());
     }
     
-    public TimeSpan(DateFormat format, TimeSpanData data) throws ParseException {
+    public TimeSpan(DateFormat dateFormat, TimeSpanData data) throws ParseException {
         this.setDateFormat(dateFormat);
         this.setData(data);
     }

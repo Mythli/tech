@@ -13,10 +13,13 @@ import java.util.List;
  *
  * @author tobias
  */
-public class ConfigurationData extends TimeSpanData {
-    public ArrayList<SchoolDayData> schoolDayList = new ArrayList<>();
-    public ArrayList<TrainingBreakData> trainingBreakList = new ArrayList<>();
+public class ConfigurationData extends SchoolSpanData {
+    public ArrayList<TrainingBreakData> trainingBreakList = new ArrayList<TrainingBreakData>();
     
     public String inDateFormat = "dd-mm-yyy";
     public String outDateFormat = "dd-mm-yyy";
+    
+    public ConfigurationData() {
+        
+    }
 }

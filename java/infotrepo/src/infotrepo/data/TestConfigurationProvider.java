@@ -24,9 +24,9 @@ public class TestConfigurationProvider extends AbstractConfigurationProvider {
         configurationData.endDate = "31.7.2014";
         configurationData.trainingBreakList = new ArrayList<TrainingBreakData>();
         
-        configurationData.trainingBreakList.add(new TrainingBreakData(TrainingBreakType.ILL, "Bronchitis", "7.2.2013", "8.2.2013"));
-        
-        TrainingBreakData school = new TrainingBreakData(TrainingBreakType.ILL, "Berufsschule", "1.1.2013", "1.2.2013");
+        configurationData.trainingBreakList.add(new TrainingBreakData("7.2.2013", "8.2.2013", null, TrainingBreakType.ILL, "Bronchitis"));
+       
+        TrainingBreakData school = new TrainingBreakData("1.1.2013", "1.2.2013", new ArrayList<SchoolDayData>(), TrainingBreakType.ILL, "Berufsschule");
         ArrayList<String> schoolLessons = new ArrayList<>();
         schoolLessons.add("ITN");
         schoolLessons.add("ITN");

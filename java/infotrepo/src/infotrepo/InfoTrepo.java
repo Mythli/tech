@@ -6,6 +6,9 @@ package infotrepo;
 
 import infotrepo.data.*;
 import com.google.gson.*;
+import infotrepo.holiday.HolidayEventCalculator;
+import infotrepo.holiday.HolidayEventData;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -26,9 +29,13 @@ public class InfoTrepo {
             System.exit(1);
         }
         
-         configurationProvider.saveConfiguration();
-        //Gson jsonSerializer = new GsonBuilder().setPrettyPrinting().create();
-        //System.out.println(jsonSerializer.toJson(configuration.getData()));
+         //configurationProvider.saveConfiguration();
+        Gson jsonSerializer = new GsonBuilder().setPrettyPrinting().create();
+        System.out.println(jsonSerializer.toJson(configuration.getData()));
         
+        HolidayEventCalculator calculator = new HolidayEventCalculator();
+        GregorianCalendar reference = new GregorianCalendar();
+        HolidayEventData data = calculator.checkFirstChristmasDay(reference);
+        System.out.println(configuration.getOutDateFormat().format(data.day.getTime()));
     }
 }

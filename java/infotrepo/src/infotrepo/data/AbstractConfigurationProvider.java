@@ -11,6 +11,8 @@ import java.text.ParseException;
  * @author tobias
  */
 public abstract class AbstractConfigurationProvider {
+    private boolean autoSave = false;
+    
     public abstract ConfigurationData getConfigurationData() throws ConfigurationProviderIOException;
     public Configuration getConfiguration() throws ConfigurationProviderIOException {
         try {
@@ -20,5 +22,25 @@ public abstract class AbstractConfigurationProvider {
         }
     }
     
-    public abstract void saveConfiguration() throws ConfigurationProviderIOException;
+     public void close() {
+        if(this.autoSave) {
+            this.saveConfiguration();
+        }
+    }
+    
+    public abstract void saveConfiguration() throws ConfigurationProviderIOException; 
+
+    /**
+     * @return the autoSave
+     */
+    public boolean isAutoSave() {
+        return autoSave;
+    }
+
+    /**
+     * @param autoSave the autoSave to set
+     */
+    public void setAutoSave(boolean autoSave) {
+        this.autoSave = autoSave;
+    }
 }

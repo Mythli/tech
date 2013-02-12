@@ -7,8 +7,8 @@ package infotrepo.data;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.PrintStream;
-import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.io.IOException;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
@@ -43,33 +43,37 @@ public abstract class FileConfigurationProvider extends AbstractConfigurationPro
           stream.close();
         }
     }
-    
+     
     protected final String readConfigFile() throws ConfigurationProviderIOException {
         try {
             return this.readFile(this.getFullConfigFileName());
+            
         } catch(IOException ex) {
             throw new ConfigurationProviderIOException("Failed to load configuration!", ex);
         }
     }
     
-    protected final void writeString(String fileName, String str) throws FileNotFoundException {
-        PrintStream out = null;
+    protected final void writeString(String fileName, String str) throws IOException {
+        File file = new File(fileName);
+        if(!file.delete()) {
+            throw new ConfigurationProviderIOException("Failed to delete config file!");
+        }
+        FileWriter fileWriter = null;
         try {
-            out = new PrintStream(new FileOutputStream(fileName));
-            out.print(str);
+            fileWriter = new FileWriter(file);;
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+            printWriter.print(str);
         }
         finally {
-            if (out != null) {
-                out.close();
-            }
+            fileWriter.close();
         }
     }
     
     protected final void writeConfigFile(String configStr) {
         try {
             this.writeString(this.getFullConfigFileName(), configStr);
-        } catch(FileNotFoundException ex) {
-            throw new ConfigurationProviderIOException("Failed to load configuration!", ex);
+        } catch(IOException ex) {
+            throw new ConfigurationProviderIOException("Failed to write configuration!", ex);
         }
     }
 }

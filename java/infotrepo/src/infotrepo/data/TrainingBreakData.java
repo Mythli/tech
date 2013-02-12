@@ -12,7 +12,6 @@ import java.util.ArrayList;
 public class TrainingBreakData extends TimeSpanData {
     public String description = "";
     public TrainingBreakType type = TrainingBreakType.OTHER;
-    public boolean hasSchoolDays = false;
     public ArrayList<SchoolDayData> schoolDayList = new ArrayList<>();
     
     public TrainingBreakData() {

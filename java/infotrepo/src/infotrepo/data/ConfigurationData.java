@@ -19,5 +19,4 @@ public class ConfigurationData extends TimeSpanData {
     
     public String inDateFormat = "dd-mm-yyy";
     public String outDateFormat = "dd-mm-yyy";
-    public boolean isBlockInstruction = false;
 }

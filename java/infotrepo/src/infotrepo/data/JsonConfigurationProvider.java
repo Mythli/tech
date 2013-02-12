@@ -23,6 +23,7 @@ public class JsonConfigurationProvider extends FileConfigurationProvider {
     public ConfigurationData getConfigurationData()  {
         this.data = new ConfigurationData();
         this.data = this.jsonSerializer.fromJson(this.readConfigFile(), this.data.getClass());
+        
         return this.data;
     }
 

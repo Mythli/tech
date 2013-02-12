@@ -22,15 +22,11 @@ public class TestConfigurationProvider extends AbstractConfigurationProvider {
 
         configurationData.startDate = "6.11.2012";
         configurationData.endDate = "31.7.2014";
-        
-        configurationData.isBlockInstruction = true;
-        
         configurationData.trainingBreakList = new ArrayList<TrainingBreakData>();
         
         configurationData.trainingBreakList.add(new TrainingBreakData(TrainingBreakType.ILL, "Bronchitis", "7.2.2013", "8.2.2013"));
         
         TrainingBreakData school = new TrainingBreakData(TrainingBreakType.ILL, "Berufsschule", "1.1.2013", "1.2.2013");
-        school.hasSchoolDays = true;
         ArrayList<String> schoolLessons = new ArrayList<>();
         schoolLessons.add("ITN");
         schoolLessons.add("ITN");

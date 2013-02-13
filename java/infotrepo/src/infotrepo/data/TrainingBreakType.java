@@ -13,5 +13,6 @@ public enum TrainingBreakType {
     SCHOOL_HOLIDAY,
     SCHOOL_BLOCK,
     ILL,
+    FREE_DAY,
     OTHER
 }

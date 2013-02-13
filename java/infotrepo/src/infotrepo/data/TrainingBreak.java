@@ -10,7 +10,7 @@ import java.text.DateFormat;
  *
  * @author Tobias
  */
-public class TrainingBreak extends TimeSpan {
+public class TrainingBreak extends SchoolSpan {
     private TrainingBreakData data = new TrainingBreakData();
    
     public TrainingBreak() throws ParseException {

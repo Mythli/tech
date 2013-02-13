@@ -10,6 +10,7 @@ package infotrepo.holiday;
  */
 public enum HolidayEventType {
     ORDINARY_DAY,
+    SUNDAY,
     NEW_YEAR_DAY,
     EPIPHANY,
     MAUNDY_THURSDAY,

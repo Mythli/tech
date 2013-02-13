@@ -131,6 +131,11 @@ public class HolidayEventCalculator {
             return holidayEventData;
         }
         
+        holidayEventData = this.checkSunday(day);
+        if(holidayEventData.isHoliday) {
+            return holidayEventData;
+        }
+        
         return holidayEventData;
     }
     
@@ -233,6 +238,25 @@ public class HolidayEventCalculator {
             return holidayEventData;
         }
         
+        holidayEventData = this.checkSunday(day);
+        if(holidayEventData.isWorkDay) {
+            return holidayEventData;
+        }
+        
+        return holidayEventData;
+    }
+    
+    public HolidayEventData checkSunday(GregorianCalendar day) {
+        HolidayEventData holidayEventData = new HolidayEventData();
+        holidayEventData.type = HolidayEventType.SUNDAY;
+        holidayEventData.name = "Sonntag";
+        holidayEventData.isHoliday = true;
+        holidayEventData.isWorkDay = false;
+        holidayEventData.day.set(GregorianCalendar.YEAR, day.get(GregorianCalendar.YEAR));
+        holidayEventData.day.set(GregorianCalendar.MONTH, day.get(GregorianCalendar.MONTH));
+        holidayEventData.day.set(GregorianCalendar.DAY_OF_MONTH, day.get(GregorianCalendar.DAY_OF_MONTH));
+        holidayEventData.day.set(GregorianCalendar.DAY_OF_WEEK, GregorianCalendar.SUNDAY);
+        holidayEventData.isTrue = this.compareEvents(holidayEventData.day, day);
         return holidayEventData;
     }
     
@@ -247,7 +271,7 @@ public class HolidayEventCalculator {
         holidayEventData.day.set(GregorianCalendar.DAY_OF_MONTH, 1);
         holidayEventData.isTrue = this.compareEvents(holidayEventData.day, day);
         return holidayEventData;
-    }
+    }  
     
     public HolidayEventData checkEpiphany(GregorianCalendar day) {
         HolidayEventData holidayEventData = new HolidayEventData();

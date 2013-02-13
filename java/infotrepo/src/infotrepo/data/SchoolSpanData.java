@@ -5,16 +5,16 @@
 
 package infotrepo.data;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class SchoolSpanData extends TimeSpanData {
-    public ArrayList<SchoolDayData> schoolDayList = new ArrayList<>();
+    public HashMap<Integer, SchoolDayData> schoolDayList = new HashMap<Integer, SchoolDayData>();
     
     public SchoolSpanData() {
         
     }
     
-    public SchoolSpanData(String startDate, String endDate, ArrayList<SchoolDayData> schoolDayList) {
+    public SchoolSpanData(String startDate, String endDate, HashMap<Integer, SchoolDayData> schoolDayList) {
         super(startDate, endDate);
         this.schoolDayList = schoolDayList;
     }

@@ -7,10 +7,9 @@ package infotrepo.data.configuration;
 import infotrepo.data.SchoolDayData;
 import infotrepo.data.TrainingBreakData;
 import infotrepo.data.TrainingBreakType;
-import java.text.ParseException;
+import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
-import java.text.SimpleDateFormat;
 
 /**
  *
@@ -29,7 +28,7 @@ public class TestConfigurationProvider extends AbstractConfigurationProvider {
         
         configurationData.trainingBreakList.add(new TrainingBreakData("7.2.2013", "8.2.2013", null, TrainingBreakType.ILL, "Bronchitis"));
        
-        TrainingBreakData school = new TrainingBreakData("1.1.2013", "1.2.2013", new ArrayList<SchoolDayData>(), TrainingBreakType.ILL, "Berufsschule");
+        TrainingBreakData school = new TrainingBreakData("1.1.2013", "1.2.2013", new HashMap<Integer, SchoolDayData>(), TrainingBreakType.ILL, "Berufsschule");
         ArrayList<String> schoolLessons = new ArrayList<>();
         schoolLessons.add("ITN");
         schoolLessons.add("ITN");
@@ -39,7 +38,7 @@ public class TestConfigurationProvider extends AbstractConfigurationProvider {
         schoolLessons.add("RELI");
         schoolLessons.add("WGP");
         SchoolDayData schoolDayData = new SchoolDayData(true, GregorianCalendar.MONDAY, schoolLessons);
-        school.schoolDayList.add(schoolDayData);
+        school.schoolDayList.put(schoolDayData.dayNr, schoolDayData);
         configurationData.trainingBreakList.add(school);
         
         return  configurationData;

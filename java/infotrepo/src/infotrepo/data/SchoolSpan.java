@@ -17,6 +17,14 @@ public class SchoolSpan extends TimeSpan {
         this.setData(data);
     }
     
+    public SchoolDayData getSchoolDay(int day) {
+        return this.getData().schoolDayList.get(day);
+    }
+    
+    public boolean isSchoolDay(int day) {
+        return this.getSchoolDay(day).isSchoolDay;
+    }
+    
     public boolean hasSchoolDays() {
         return this.getData().schoolDayList.size() > 0;
     }

@@ -1,8 +1,10 @@
 package infotrepo.console;
-import java.io.InputStream;
+import infotrepo.data.ReportDayData;
 import java.io.PrintStream;
+import java.io.InputStream;
 import infotrepo.data.configuration.Configuration;
 import java.text.ParseException;
+import java.util.ArrayList;
 
 public class ConsoleHandler {
     private Configuration configuration = new Configuration();
@@ -18,10 +20,10 @@ public class ConsoleHandler {
         this.printer = new ConsolePrinter(outputStream);
         this.setConfiguration(configuration);
     }
-    public boolean processInpput(String input) {
-        boolean continueInput = true;
+    public ArrayList<ReportDayData> processInpput(String input) {
+        ArrayList<ReportDayData> reportDayData = new ArrayList<ReportDayData>();
         
-        return continueInput;
+        return reportDayData;
     }
     /**
      * @return the consoleParser

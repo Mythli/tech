@@ -13,6 +13,7 @@ import infotrepo.holiday.HolidayEventCalculator;
 import infotrepo.holiday.HolidayEventData;
 import java.util.GregorianCalendar;
 import infotrepo.console.*;
+import infotrepo.data.configuration.TestConfigurationProvider;
 
 /**
  *
@@ -48,11 +49,12 @@ public class InfoTrepo {
             System.exit(1);
         }
         
-         //configurationProvider.saveConfiguration();
-        /*Gson jsonSerializer = new GsonBuilder().setPrettyPrinting().create();
-        System.out.println(jsonSerializer.toJson(configuration.getData()));
         
-        HolidayEventCalculator calculator = new HolidayEventCalculator();
+        
+         //configurationProvider.saveConfiguration();
+        
+        
+        /*HolidayEventCalculator calculator = new HolidayEventCalculator();
         GregorianCalendar reference = new GregorianCalendar();
         reference.set(GregorianCalendar.YEAR, 2000);
         HolidayEventData data = calculator.checkFirstChristmasDay(reference);

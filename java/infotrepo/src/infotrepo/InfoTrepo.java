@@ -9,6 +9,7 @@ import com.google.gson.*;
 import infotrepo.holiday.HolidayEventCalculator;
 import infotrepo.holiday.HolidayEventData;
 import java.util.GregorianCalendar;
+import java.text.DateFormat;
 
 /**
  *
@@ -35,7 +36,8 @@ public class InfoTrepo {
         
         HolidayEventCalculator calculator = new HolidayEventCalculator();
         GregorianCalendar reference = new GregorianCalendar();
-        HolidayEventData data = calculator.checkFirstChristmasDay(reference);
+        reference.set(GregorianCalendar.YEAR, 2014);
+        HolidayEventData data = calculator.checkGoodFriday(reference);
         System.out.println(configuration.getOutDateFormat().format(data.day.getTime()));
     }
 }

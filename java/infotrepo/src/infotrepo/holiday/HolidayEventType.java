@@ -14,6 +14,7 @@ public enum HolidayEventType {
     EPIPHANY,
     MAUNDY_THURSDAY,
     GOOD_FRIDAY,
+    EASTER_SUNDAY,
     EASTER_MONDAY,
     LABOUR_DAY,
     ASCENSION_OF_CHRIST,

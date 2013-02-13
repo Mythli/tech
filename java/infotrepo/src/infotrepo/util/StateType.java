@@ -2,6 +2,7 @@ package infotrepo.util;
 
 public class StateType {
     public static int ALL;
+    public static int NONE;
     public static int NORTH_RHINE_WESTPHALIA;
     public static int BAVARIA;
     public static int BADEN_WUERTTEMBERG;

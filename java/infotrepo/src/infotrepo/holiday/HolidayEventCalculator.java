@@ -2,10 +2,11 @@
 
 package infotrepo.holiday;
 import infotrepo.util.StateType;
+import java.text.DateFormat;
 import java.util.GregorianCalendar;
 
 public class HolidayEventCalculator {
-    private int state = StateType.ALL;
+    private int state = StateType.NONE;
     
     public HolidayEventCalculator() {
         
@@ -25,7 +26,8 @@ public class HolidayEventCalculator {
     
     private GregorianCalendar calculateDaysFromEaster(GregorianCalendar day, int days) {
         HolidayEventData easterData = this.checkEasterSunday(day);
-        easterData.day.add(GregorianCalendar.DAY_OF_MONTH, days);        
+        easterData.day.set(GregorianCalendar.DAY_OF_MONTH, easterData.day.get(GregorianCalendar.DAY_OF_MONTH) + days);  
+              
         
         return easterData.day;
     }
@@ -252,7 +254,7 @@ public class HolidayEventCalculator {
         holidayEventData.type = HolidayEventType.EPIPHANY;
         holidayEventData.isHoliday = true;
         holidayEventData.isWorkDay = false;
-        holidayEventData.name = "Gründonnerstag";
+        holidayEventData.name = "Heilige Drei Könige";
         holidayEventData.day.set(GregorianCalendar.YEAR, day.get(GregorianCalendar.YEAR));
         holidayEventData.day.set(GregorianCalendar.MONTH, GregorianCalendar.JANUARY);
         holidayEventData.day.set(GregorianCalendar.DAY_OF_MONTH, 6);
@@ -262,11 +264,23 @@ public class HolidayEventCalculator {
     
     public HolidayEventData checkMaundyThursday(GregorianCalendar day) {
         HolidayEventData holidayEventData = new HolidayEventData();
+        holidayEventData.type = HolidayEventType.MAUNDY_THURSDAY;
+        holidayEventData.isHoliday = true;
+        holidayEventData.isWorkDay = false;
+        holidayEventData.name = "Gründonnerstag";
+        holidayEventData.day = this.calculateDaysFromEaster(day, -3);
+        holidayEventData.isTrue = this.compareEvents(holidayEventData.day, day);
         return holidayEventData;
     }
         
     public HolidayEventData checkGoodFriday(GregorianCalendar day) {
         HolidayEventData holidayEventData = new HolidayEventData();
+        holidayEventData.type = HolidayEventType.GOOD_FRIDAY;
+        holidayEventData.isHoliday = true;
+        holidayEventData.isWorkDay = false;
+        holidayEventData.name = "Karfreitag";
+        holidayEventData.day = this.calculateDaysFromEaster(day, -2);
+        holidayEventData.isTrue = this.compareEvents(holidayEventData.day, day);
         return holidayEventData;
     }
     
@@ -282,33 +296,36 @@ public class HolidayEventCalculator {
             throw new IllegalArgumentException(
                     "Algorithm invalid before April 1583");
         }
-        int golden, century, x, z, d, epact, n;
-        golden = (year % 19) + 1; /* E1: metonic cycle */
-        century = (year / 100) + 1; /* E2: e.g. 1984 was in 20th C */
-        x = (3 * century / 4) - 12; /* E3: leap year correction */
-        z = ((8 * century + 5) / 25) - 5; /* E3: sync with moon's orbit */
-        d = (5 * year / 4) - x - 10;
-        epact = (11 * golden + 20 + z - x) % 30; /* E5: epact */
-        if ((epact == 25 && golden > 11) || epact == 24) {
-            epact++;
-        }
-        n = 44 - epact;
-        n += 30 * (n < 21 ? 1 : 0); /* E6: */
-        n += 7 - ((d + n) % 7);
+        int a = year % 19;
+        int b = year / 100;
+        int c = year % 100;
+        int d = b / 4;
+        int e = b % 4;
+        int f = (b + 8) / 25;
+        int g = (b - f + 1) / 3;
+        int h = (19 * a + b - d - g + 15) % 30;
+        int i = c / 4;
+        int k = c % 4;
+        int L = (32 + 2 * e + 2 * i - h - k) % 7;
+        int m = (a + 11 * h + 22 * L) / 451;
+        int month = (h + L - 7 * m + 114)  /31;
+        int easterDay = ((h + L - 7 * m + 114) % 31) + 1;
         
-        if (n > 31) {
-            holidayEventData.day = new GregorianCalendar(year, 4 - 1, n - 31); /* April */
-        }
-        else {
-            holidayEventData.day = new GregorianCalendar(year, 3 - 1, n); /* March */
-        }
-        
+        holidayEventData.day.set(GregorianCalendar.YEAR, year);
+        holidayEventData.day.set(GregorianCalendar.MONTH, (month - 1));
+        holidayEventData.day.set(GregorianCalendar.DAY_OF_MONTH, easterDay);
         holidayEventData.isTrue = this.compareEvents(holidayEventData.day, day);
         return holidayEventData;
     }
     
     public HolidayEventData checkEasterMonday(GregorianCalendar day) {
         HolidayEventData holidayEventData = new HolidayEventData();
+        holidayEventData.type = HolidayEventType.EASTER_MONDAY;
+        holidayEventData.isHoliday = true;
+        holidayEventData.isWorkDay = false;
+        holidayEventData.name = "Ostermontag";
+        holidayEventData.day = this.calculateDaysFromEaster(day, 1);
+        holidayEventData.isTrue = this.compareEvents(holidayEventData.day, day);
         return holidayEventData;
     }
     
@@ -327,16 +344,34 @@ public class HolidayEventCalculator {
     
     public HolidayEventData checkAscensionOfChristi(GregorianCalendar day) {
         HolidayEventData holidayEventData = new HolidayEventData();
+        holidayEventData.type = HolidayEventType.ASCENSION_OF_CHRIST;
+        holidayEventData.isHoliday = true;
+        holidayEventData.isWorkDay = false;
+        holidayEventData.name = "Christi Himmelfahrt";
+        holidayEventData.day = this.calculateDaysFromEaster(day, 39);
+        holidayEventData.isTrue = this.compareEvents(holidayEventData.day, day);
         return holidayEventData;
     }
     
     public HolidayEventData checkWhitMonday(GregorianCalendar day) {
         HolidayEventData holidayEventData = new HolidayEventData();
+        holidayEventData.type = HolidayEventType.WHIT_MONDAY;
+        holidayEventData.isHoliday = true;
+        holidayEventData.isWorkDay = false;
+        holidayEventData.name = "Pfingstmontag";
+        holidayEventData.day = this.calculateDaysFromEaster(day, 50);
+        holidayEventData.isTrue = this.compareEvents(holidayEventData.day, day);
         return holidayEventData;
     }
     
     public HolidayEventData checkCorpusChristi(GregorianCalendar day) {
         HolidayEventData holidayEventData = new HolidayEventData();
+        holidayEventData.type = HolidayEventType.CORPUS_CHRISTI;
+        holidayEventData.isHoliday = true;
+        holidayEventData.isWorkDay = false;
+        holidayEventData.name = "Fronleichnam";
+        holidayEventData.day = this.calculateDaysFromEaster(day, 60);
+        holidayEventData.isTrue = this.compareEvents(holidayEventData.day, day);
         return holidayEventData;
     }
     
@@ -406,6 +441,19 @@ public class HolidayEventCalculator {
     
     public HolidayEventData checkRepentanceAndPrayer(GregorianCalendar day) {
         HolidayEventData holidayEventData = new HolidayEventData();
+        holidayEventData.type = HolidayEventType.REPENTANCE_AND_PRAYER;
+        holidayEventData.isHoliday = true;
+        holidayEventData.isWorkDay = false;
+        holidayEventData.name = "Buß- und Bettag";
+        holidayEventData.day.set(GregorianCalendar.YEAR, day.get(GregorianCalendar.YEAR));
+        holidayEventData.day.set(GregorianCalendar.MONTH, GregorianCalendar.SEPTEMBER);
+        holidayEventData.day.set(GregorianCalendar.DAY_OF_MONTH, 23);
+        if(holidayEventData.day.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.WEDNESDAY) {
+            holidayEventData.day.set(GregorianCalendar.DAY_OF_WEEK, GregorianCalendar.THURSDAY);
+        }
+        while(holidayEventData.day.get(GregorianCalendar.DAY_OF_WEEK) != GregorianCalendar.WEDNESDAY) {
+            holidayEventData.day.set(GregorianCalendar.DAY_OF_WEEK, holidayEventData.day.get(GregorianCalendar.DAY_OF_WEEK)-1);
+        }        
         return holidayEventData;
     }
      

@@ -17,7 +17,7 @@ public class TestConfigurationProvider extends AbstractConfigurationProvider {
     public @Override ConfigurationData getConfigurationData() throws ConfigurationProviderIOException {
         ConfigurationData configurationData = new ConfigurationData();
         
-        configurationData.inDateFormat = "dd.mm.yyy";
+        configurationData.inDateFormat = "dd.MM.yyy";
         configurationData.outDateFormat = configurationData.inDateFormat;
 
         configurationData.startDate = "6.11.2012";

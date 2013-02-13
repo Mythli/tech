@@ -2,7 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package infotrepo.data;
+package infotrepo.data.configuration;
+import infotrepo.data.SchoolSpanData;
+import infotrepo.data.TimeSpan;
+import infotrepo.data.TrainingBreak;
+import infotrepo.data.TrainingBreakData;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -26,6 +30,10 @@ public class Configuration extends TimeSpan {
     public Configuration(ConfigurationData data) throws ParseException {
         this.setData(data);
     }
+    
+    /*public Object checkDay() {
+        return new Object();
+    }*/
     
     /**
      * @return the data

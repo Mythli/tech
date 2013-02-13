@@ -30,6 +30,13 @@ public class TimeSpan {
         this.setStartDate(startDate);
         this.setEndDate(endDate);
     }
+    
+    public boolean isWithinTimeSpan(GregorianCalendar compareTo) {
+        if(this.getStartDate().compareTo(compareTo) < 0 && this.getEndDate().compareTo(compareTo) > 0) {
+            return true;
+        }
+        return false;
+    }
 
     /**
      * @return the data

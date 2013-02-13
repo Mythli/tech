@@ -2,8 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package infotrepo.data;
+package infotrepo.data.configuration;
 
+import infotrepo.data.SchoolDayData;
+import infotrepo.data.TrainingBreakData;
+import infotrepo.data.TrainingBreakType;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;

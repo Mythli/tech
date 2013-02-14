@@ -3,8 +3,6 @@
  * and open the template in the editor.
  */
 package infotrepo.data.configuration;
-import infotrepo.data.SchoolSpanData;
-import infotrepo.data.TrainingBreakData;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;

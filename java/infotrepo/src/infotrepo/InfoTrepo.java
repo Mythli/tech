@@ -25,7 +25,7 @@ public class InfoTrepo {
      * @param args the command line arguments
      */
     public static void main(String[] args) { 
-        AbstractConfigurationProvider configurationProvider = new JsonConfigurationProvider();
+        AbstractConfigurationProvider configurationProvider = new TestConfigurationProvider();
         ConsoleHandler consoleHandler;
         Configuration configuration;
         try {
@@ -33,11 +33,11 @@ public class InfoTrepo {
             consoleHandler = new ConsoleHandler(configuration, System.in, System.out);
             
             consoleHandler.getPrinter().printHelloMessage();
-            boolean continueExecution = false;
+            boolean continueExecution = true;
             while(continueExecution) {
                 String consoleInput = consoleHandler.getParser().readString();
                 if(consoleHandler.getParser().parseQuit(consoleInput) != true) {
-
+                    consoleHandler.processInpput(consoleInput);
                 } else {
                     continueExecution = false;
                 }

@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package infotrepo.data;
+package infotrepo.data.configuration;
 import java.util.GregorianCalendar;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -18,7 +18,7 @@ public class SchoolSpan extends TimeSpan {
     }
     
     public SchoolDayData getSchoolDay(int day) {
-        return this.getData().schoolDayList.get(day);
+        return this.getData().schoolDayList[day];
     }
     
     public boolean isSchoolDay(int day) {
@@ -26,7 +26,12 @@ public class SchoolSpan extends TimeSpan {
     }
     
     public boolean hasSchoolDays() {
-        return this.getData().schoolDayList.size() > 0;
+        for(SchoolDayData schoolDayData: this.getData().schoolDayList) {
+            if(schoolDayData != null && schoolDayData.isSchoolDay) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**

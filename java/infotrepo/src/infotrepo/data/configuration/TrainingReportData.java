@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package infotrepo.data;
+package infotrepo.data.configuration;
 
 /**
  * 

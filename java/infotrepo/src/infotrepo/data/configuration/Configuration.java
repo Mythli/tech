@@ -3,10 +3,6 @@
  * and open the template in the editor.
  */
 package infotrepo.data.configuration;
-import infotrepo.data.SchoolSpanData;
-import infotrepo.data.TimeSpan;
-import infotrepo.data.TrainingBreak;
-import infotrepo.data.TrainingBreakData;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -1,13 +1,13 @@
 package infotrepo.console;
 import java.io.InputStream;
 import java.util.GregorianCalendar;
-import infotrepo.data.TimeSpan;
+import infotrepo.data.configuration.TimeSpan;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.ParseException;
 import infotrepo.data.configuration.Configuration;
-import infotrepo.data.TimeSpanData;
+import infotrepo.data.configuration.TimeSpanData;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.util.AbstractMap.SimpleEntry;

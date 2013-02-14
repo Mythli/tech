@@ -20,10 +20,8 @@ public class ConsoleHandler {
         this.printer = new ConsolePrinter(outputStream);
         this.setConfiguration(configuration);
     }
-    public ArrayList<ReportDayData> processInpput(String input) {
-        ArrayList<ReportDayData> reportDayData = new ArrayList<ReportDayData>();
-        
-        return reportDayData;
+    public ConsoleInput processInpput(String input) {
+        return new ConsoleInput();
     }
     /**
      * @return the consoleParser

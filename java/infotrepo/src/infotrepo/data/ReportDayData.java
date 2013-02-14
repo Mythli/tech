@@ -1,4 +1,6 @@
 package infotrepo.data;
+import infotrepo.data.configuration.SchoolSpan;
+import infotrepo.data.configuration.TrainingBreak;
 import infotrepo.holiday.HolidayEventData;
 import java.util.GregorianCalendar;
 

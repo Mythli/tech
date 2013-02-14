@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package infotrepo.data;
+package infotrepo.data.configuration;
 import java.util.GregorianCalendar;
 import java.text.DateFormat;
 import java.text.ParseException;

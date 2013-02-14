@@ -2,8 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package infotrepo.data;
-import java.util.HashMap;
+package infotrepo.data.configuration;
 
 /**
  *
@@ -18,7 +17,7 @@ public class TrainingBreakData extends SchoolSpanData {
         this.type = TrainingBreakType.OTHER;
     }
     
-    public TrainingBreakData(String startDate, String endDate, HashMap<Integer, SchoolDayData> schoolDayList, TrainingBreakType type, String description) {
+    public TrainingBreakData(String startDate, String endDate, SchoolDayData[] schoolDayList, TrainingBreakType type, String description) {
         super(startDate, endDate, schoolDayList);
         this.type = type;
         this.description = description;

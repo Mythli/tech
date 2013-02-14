@@ -3,18 +3,16 @@
  * and open the template in the editor.
  */
 
-package infotrepo.data;
-
-import java.util.HashMap;
+package infotrepo.data.configuration;
 
 public class SchoolSpanData extends TimeSpanData {
-    public HashMap<Integer, SchoolDayData> schoolDayList = new HashMap<Integer, SchoolDayData>();
+    public SchoolDayData[] schoolDayList;
     
     public SchoolSpanData() {
-        
+        this.schoolDayList = new SchoolDayData[7];
     }
     
-    public SchoolSpanData(String startDate, String endDate, HashMap<Integer, SchoolDayData> schoolDayList) {
+    public SchoolSpanData(String startDate, String endDate, SchoolDayData[] schoolDayList) {
         super(startDate, endDate);
         this.schoolDayList = schoolDayList;
     }

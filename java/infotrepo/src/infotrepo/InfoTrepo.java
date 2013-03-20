@@ -28,16 +28,25 @@ public class InfoTrepo {
         AbstractConfigurationProvider configurationProvider = new TestConfigurationProvider();
         ConsoleHandler consoleHandler;
         Configuration configuration;
+        InputProcessor inputProcessor;
         try {
             configuration = configurationProvider.getConfiguration();
             consoleHandler = new ConsoleHandler(configuration, System.in, System.out);
+            inputProcessor = new InputProcessor(configuration);
             
             consoleHandler.getPrinter().printHelloMessage();
             boolean continueExecution = true;
             while(continueExecution) {
+                consoleHandler.getPrinter().printInpuDataInfoMessage();
                 String consoleInput = consoleHandler.getParser().readString();
                 if(consoleHandler.getParser().parseQuit(consoleInput) != true) {
-                    consoleHandler.processInpput(consoleInput);
+                    try {
+                        ConsoleInput input = consoleHandler.getParser().parseInput(consoleInput);
+                        input = inputProcessor.processInput(input);
+                        int a = 5;
+                    } catch(ConsoleParseException ex) {
+                        consoleHandler.getPrinter().printInputMissmatch();
+                    }
                 } else {
                     continueExecution = false;
                 }

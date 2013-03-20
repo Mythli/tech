@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.text.ParseException;
 import infotrepo.data.configuration.Configuration;
 import infotrepo.data.configuration.TimeSpanData;
+import java.util.AbstractMap;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.util.AbstractMap.SimpleEntry;
@@ -68,6 +69,9 @@ public class ConsoleParser {
     public SimpleEntry<String, String> parseSpan(String spanString) throws ConsoleParseException {
         Matcher spanMatcher = ConsoleParser.spanPattern.matcher(spanString);
         if(spanMatcher.matches()) {
+            for(int i = 0; i < spanMatcher.groupCount() + 1; i++) {
+                System.out.println(i + " " + spanMatcher.group(i));
+            }
             SimpleEntry spanPair = new SimpleEntry(spanMatcher.group(1), spanMatcher.group(2));
             return spanPair;
         } 
@@ -75,16 +79,54 @@ public class ConsoleParser {
         throw new ConsoleParseException("Failed to parse span! pattern: "+ConsoleParser.spanPattern.pattern());
     }
     
-    public TimeSpan parseTimeSpan(String timeSpanString) throws ConsoleParseException {
+    public  SimpleEntry<GregorianCalendar, GregorianCalendar> parseTimeSpan(String timeSpanString) throws ConsoleParseException {
         try {
-            SimpleEntry<String, String> timeSpanPair = this.parseSpan(timeSpanString);
-            TimeSpanData timeSpanData = new TimeSpanData(timeSpanPair.getKey(), timeSpanPair.getValue());
-            TimeSpan timeSpan = new TimeSpan(this.configuration.getInDateFormat(), timeSpanData);
-
-            return timeSpan;
+            SimpleEntry<String, String> spanPair = this.parseSpan(timeSpanString);
+            GregorianCalendar fromDate = new GregorianCalendar();
+            fromDate.setTime(this.getConfiguration().getInDateFormat().parse(spanPair.getKey()));
+            GregorianCalendar toDate = new GregorianCalendar();
+            toDate.setTime(this.getConfiguration().getInDateFormat().parse(spanPair.getValue()));
+            return new SimpleEntry<GregorianCalendar, GregorianCalendar>(fromDate, toDate);
         } catch(Exception ex) {
             throw new ConsoleParseException("Failed to parse time span from input stream!", ex);
         }
+    }
+    
+    public ConsoleInput parseInput(String inputString) {
+        ConsoleInputData data = new ConsoleInputData();
+        
+        try {
+            data.inputReportNumbers = new AbstractMap.SimpleEntry<Integer, Integer>(this.parseInteger(inputString), 0);
+            data.consoleInputMode = ConsoleInputMode.REPORT_NR;
+            return new ConsoleInput(data);
+        } catch(Exception ex) { }
+        
+        try {
+            data.inputReportNumbers = this.parseNumberSpan(inputString);
+            data.consoleInputMode = ConsoleInputMode.REPORT_NR_REPORT_NR;
+            return new ConsoleInput(data);
+        } catch(Exception ex) { }
+               
+        try {
+            data.inputDates = this.parseTimeSpan(inputString);
+            data.consoleInputMode = ConsoleInputMode.DATE_DATE;
+            return new ConsoleInput(data);
+        } catch(Exception ex) { }
+        
+        try {
+            data.inputDates = new AbstractMap.SimpleEntry<GregorianCalendar, GregorianCalendar>(this.parseDate(inputString), null);
+            data.consoleInputMode = ConsoleInputMode.DATE;
+            return new ConsoleInput(data);
+        } catch(Exception ex) { }
+        
+        
+        throw new ConsoleParseException("Failed to parse input or input is invalid.");
+    }
+    
+    public SimpleEntry<Integer, Integer> parseNumberSpan(String spanString) throws ConsoleParseException {
+        SimpleEntry<String, String> spanPair = parseSpan(spanString);
+        
+        return new SimpleEntry<Integer, Integer>(Integer.parseInt(spanPair.getKey()), Integer.parseInt(spanPair.getValue()));
     }
     
     public boolean parseQuit(String quitString) {

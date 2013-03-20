@@ -8,7 +8,7 @@ package infotrepo.console;
  *
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
-public enum ConsoleInputType {
+public enum ConsoleInputMode {
     REPORT_NR,
     REPORT_NR_REPORT_NR,
     REPORT_NR_DATE,

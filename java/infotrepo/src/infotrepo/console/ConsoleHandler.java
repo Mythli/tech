@@ -4,7 +4,8 @@ import java.io.PrintStream;
 import java.io.InputStream;
 import infotrepo.data.configuration.Configuration;
 import java.text.ParseException;
-import java.util.ArrayList;
+import java.util.AbstractMap;
+import java.util.GregorianCalendar;
 
 public class ConsoleHandler {
     private Configuration configuration = new Configuration();
@@ -19,9 +20,6 @@ public class ConsoleHandler {
         this.parser = new ConsoleParser(configuration, inputStream);
         this.printer = new ConsolePrinter(outputStream);
         this.setConfiguration(configuration);
-    }
-    public ConsoleInput processInpput(String input) {
-        return new ConsoleInput();
     }
     /**
      * @return the consoleParser

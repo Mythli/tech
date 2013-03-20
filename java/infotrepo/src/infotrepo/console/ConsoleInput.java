@@ -10,8 +10,6 @@ public class ConsoleInput {
     public ConsoleInput(ConsoleInputData data) {
         this.setData(data);
     }
-
-    
     
     /**
      * @return the data

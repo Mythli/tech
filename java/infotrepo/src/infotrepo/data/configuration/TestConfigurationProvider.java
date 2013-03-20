@@ -16,9 +16,9 @@ public class TestConfigurationProvider extends AbstractConfigurationProvider {
         ConfigurationData configurationData = new ConfigurationData();
         
         configurationData.inDateFormat = "dd.MM.yyy";
-        configurationData.outDateFormat = configurationData.inDateFormat;
+        configurationData.outDateFormat = "EEEE, dd.MM.yyy";
 
-        configurationData.startDate = "6.11.2012";
+        configurationData.startDate = "11.6.2012";
         configurationData.endDate = "31.7.2014";
         configurationData.trainingBreakList = new ArrayList<TrainingBreakData>();
         

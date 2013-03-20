@@ -23,8 +23,13 @@ public class ConsolePrinter {
     }
     
     public void printInpuDataInfoMessage() {
-        this.printMessage("Bitte geben Sie die benötigten Daten zur Informationsverarbeitung ein.");
+        this.printMessage("Bitte gib die benötigten Daten zur Informationsverarbeitung ein.");
         this.printMessage("Berichtsheftnummer, Datumumswerte und, Zeitspannen von Berichtsheftnummern (und/ oder) Datumswerten können verarbeitet werden.");
+        this.printMessage("");
+    }
+    
+    public void printRequestIsInProcess() {
+        this.printMessage("Bitte habe einen Augenblick Geduld. Deine Anfrage wird bearbeitet.");
         this.printMessage("");
     }
     
@@ -34,6 +39,11 @@ public class ConsolePrinter {
         try {
             Thread.currentThread().sleep(500);
         } catch(InterruptedException ex ) { }
+    }
+    
+    public void printInputMissmatch() {
+        this.printMessage("Das tut uns leid. Deine Eingabe konnte nicht verarbeitet werden.");
+        this.printMessage("");
     }
 
     /**

@@ -1,1 +1,0 @@
-add_executable(jsmin jsmin/jsmin.c)

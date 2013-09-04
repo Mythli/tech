@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="css/tree.jquery.css" rel="stylesheet">
+    <link href="css/customizedTree.jquery.css" rel="stylesheet">
+
+    <style>
+            body {
+                margin: 0px;
+                padding: 0px;
+            }
+
+            #topBar {
+                height: 25px;
+                padding: 7px;
+                padding-left: 15px;
+                background-color: #F1F1F1;
+                border-bottom: 1px solid #e8e8e8;
+            }
+
+            #contentArea {
+                padding: 7px;
+            }
+        </style>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/tree.jquery.js"></script>
+    <script type="text/javascript">
+        var data = [
+            { label: 'Hardcover' },
+            { label: 'Taschenbuch' },
+            {
+                label: 'Zeitschriften, Loseblat ...',
+                children: [
+                    { label: 'Belletristik' },
+                    { label: 'Kinder und Jugendbücher' },
+                    {
+                        label: 'Reiseführer',
+                        children: [
+                            { label: 'Reiseführer' },
+                            { label: 'Reiseführer/Sportreise ...' },
+                            { label: 'Hotelführer, Restauran ...' },
+                            {
+                                label: 'Karten, Stadtpläne, At ...',
+                                children: [
+                                    { label: 'Reiseführer' },
+                                    { label: 'Reiseführer/Sportreise ...' },
+                                    { label: 'Hotelführer, Restauran ...' },
+                                ]
+                            },
+                        ]
+                    },
+                ]
+            },
+            { label: 'Video' }
+        ];
+
+        var baseIndentation = 12;
+
+        var inlineIndent = function(node, $li) {
+            var indentation = baseIndentation * node.getLevel();
+            var $titleElem = $li.find('.jqtree-title');
+            if($titleElem) {
+                $titleElem.html('<span style="display: inline-block; text-indent: '+indentation+'px">'+$titleElem.html()+'</span>');
+            }
+
+            if(node.isFolder()) {
+                $togglerElem = $li.find('.jqtree-toggler');
+                if($togglerElem) {
+                    $togglerElem.css('text-indent', indentation+'px');
+                }
+            }
+        }
+
+
+        $(document).ready(function() {
+            $('#defaultTree').tree({
+                data: data
+            });
+
+            $('#customizedTree').tree({
+                autoEscape: false,
+                data: data,
+                onCreateLi: inlineIndent
+            });
+
+
+
+            $('#defaultTreeButton').click(function() {
+                $('#defaultTree').css('display', 'block');
+                $('#customizedTree').css('display', 'none');
+            });
+
+            $('#customizedTreeButton').click(function() {
+                $('#customizedTree').css('display', 'block');
+                $('#defaultTree').css('display', 'none');
+            });
+        });
+    </script>
+</head>
+<body>
+	<div id="topBar">
+        <input id="defaultTreeButton" type="submit" value="Default Tree">
+        <input id="customizedTreeButton" type="submit" value="Customized Tree">
+	</div>
+
+    <div id="contentArea">
+        <div id="defaultTree" style="display: block;"></div>
+        <div id="customizedTree" class="cleanTree inlineIndentTree customizedTree" style="display: none;"></div>
+    </div>
+</body>

@@ -1,0 +1,43 @@
+.cleanTree ul.jqtree-tree li.jqtree-selected > .jqtree-element,
+.cleanTree ul.jqtree-tree li.jqtree-selected > .jqtree-element:hover {
+    text-shadow:  none !important;
+    background: none !important;
+}
+
+.cleanTree ul.jqtree-tree,
+.cleanTree li.jqtree-folder {
+    margin-bottom: 0px !important;
+}
+
+.inlineIndentTree ul.jqtree-tree ul.jqtree_common {
+    margin-left: 0px;
+}
+
+.inlineIndentTree .jqtree-toggler {
+    top: 0%;
+    padding-left: 4px;
+}
+
+#customizedTree .jqtree-folder > div.jqtree-element:hover,
+#customizedTree ul > li.jqtree_common:hover,
+#customizedTree .jqtree-selected > ul.jqtree_common > li.jqtree_common:hover,
+#customizedTree .jqtree-folder > ul.jqtree_common > li.jqtree_common:hover {
+    background-color: #AFD7E1;
+}
+
+#customizedTree .jqtree-folder:hover {
+    background-color: transparent !important;
+}
+
+#customizedTree li.jqtree-selected,
+#customizedTree li.jqtree-selected > div.jqtree-element {
+    background-color: #d43f3a !important;
+}
+
+#customizedTree li.jqtree-selected > div.jqtree-element > span.jqtree-title {
+    color: white;
+}
+
+#customizedTree .jqtree-folder.jqtree-selected > ul.jqtree_common {
+    background-color: #EBEBEB;
+}

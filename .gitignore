@@ -13,3 +13,4 @@ Doxyfile
 *.kdevses
 .*kate-swp
 build/
+*.directory

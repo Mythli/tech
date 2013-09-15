@@ -1,0 +1,3 @@
+[submodule "cpp/socisql/lib/soci"]
+	path = cpp/socisql/lib/soci
+	url = https://github.com/SOCI/soci.git

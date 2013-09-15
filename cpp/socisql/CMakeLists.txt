@@ -17,10 +17,10 @@ set(SOCI_TESTS 0)
 set(WITH_BOOST 1)
 set(WITH_SQLITE3 1)
 
-add_subdirectory(lib/soci)	
+add_subdirectory(lib/soci/src)	
 include_directories(
-	"lib/soci/core"
-	"lib/soci/backends/sqlite3"
+	"lib/soci/src/core"
+	"lib/soci/src/backends/sqlite3"
 )
 add_executable(socisql main.cpp)
 

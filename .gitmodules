@@ -1,0 +1,3 @@
+[submodule "cpp/cmake/socisql/lib/soci"]
+	path = cpp/cmake/socisql/lib/soci
+	url = https://github.com/SOCI/soci.git

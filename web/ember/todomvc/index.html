@@ -9,7 +9,7 @@
 	<script type="text/x-handlebars" data-template-name="todos/index">
 	<ul id="todo-list">
 		{{#each itemController="todo"}}
-			<li {{bind-attr class="isCompleted:completed isEditing:editing"}}>
+			<li {{bind-attr class="isCompleted:completed isEditing:editing"}} >
 				{{#if isEditing}}
 					{{edit-todo class="edit" value=title focus-out="acceptChanges" insert-newline="acceptChanges"}}
 				{{else}}
@@ -63,11 +63,11 @@
 			<p>Double-click to edit a todo</p>
 		</footer>
 	</script>
-	<script src="js/libs/jquery-1.10.2.min.js"></script>
-	<script src="js/libs/handlebars-1.0.0.js"></script>
-	<script src="js/libs/ember.js"></script>
-	<script src="js/libs/ember-data.js"></script>
-	<script src="js/libs/localstorage_adapter.js"></script>
+	<script src="../boilerplate/js/libs/jquery-1.10.2.min.js"></script>
+	<script src="../boilerplate/libs/handlebars-1.0.0.js"></script>
+	<script src="../boilerplate/libs/ember.js"></script>
+	<script src="../boilerplate/libs/ember-data.js"></script>
+	<script src="../boilerplate/libs/localstorage_adapter.js"></script>
 
 	<script src="js/application.js"></script>
 	<script src="js/router.js"></script>

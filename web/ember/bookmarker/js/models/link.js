@@ -21,6 +21,6 @@ App.Link.FIXTURES = [
 		id: 3,
 		name: 'Feedly',
 		url: 'http://feedly.com',
-		labels: [3]
+		labels: [3,1]
 	},
 ];

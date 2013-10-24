@@ -2,6 +2,10 @@ body {
 	padding-top: 15px;
 }
 
+h1 {
+	text-transform: uppercase;
+}
+
 .list-inline li {
 	padding: 0px;
 }
@@ -9,4 +13,8 @@ body {
 .list-inline .active,
 .list-inline .active:hover {
 	background-color: green;
+}
+
+#new-label-form {
+	margin-bottom: 5px;
 }

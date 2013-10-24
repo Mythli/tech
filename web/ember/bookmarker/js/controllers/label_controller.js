@@ -1,14 +1,18 @@
 App.LabelController = Ember.ObjectController.extend({
-	needs: ["list"],
+	needs:['application'],
 	active: false,
-
 	actions: {
 		findLinks: function() {
-			var listController = this.get('controllers.list');
-
 			this.toggleProperty('active');
-
-			listController.set('model', this.get('store').find('link'));
+			var selectedLabels =   this.get('controllers.application.selectedLabels');
+			if(this.get('active')){
+				selectedLabels.addObject(this.get('model'));
+			}
+			else
+			{
+				selectedLabels.removeObject(this.get('model'));
+			}
+			this.send('activeLabel');
 		}
 	}
 });

@@ -15,5 +15,12 @@ App.FreeNigga = App.Nigga.extend({
 });
 
 
+App.FreeNigga.reopen({
+	isNigga: true
+});
+
 var luther = App.FreeNigga.create({name: 'Martin Luther King'});
+if(luther.get('isNigga')) {
+	console.log('Luther is a nigga!');
+}
 luther.speakFree('all niggaz should be free!');

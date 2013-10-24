@@ -1,0 +1,12 @@
+body {
+	padding-top: 15px;
+}
+
+.list-inline li {
+	padding: 0px;
+}
+
+.list-inline .active,
+.list-inline .active:hover {
+	background-color: green;
+}

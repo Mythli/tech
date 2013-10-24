@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+	<title>Bookmarker</title>
+	<link href="../../bootstrap/boilerplate/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/screen.css" rel="stylesheet">
+</head>
+<body>
+	<script type="text/x-handlebars">
+		<div class="container">
+			<h1>Bookmarker</h1>
+			<div class="well">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<ul class="list-inline">
+							{{#each itemController="label"}}
+								<li>
+									<a href="#" {{bind-attr class=":label active:label-primary:label-default"}} {{action 'findLinks'}}>{{name}}</a>
+								</li>
+							{{/each}}
+						</ul>
+					</div>
+				</div>
+				{{outlet}}
+			</div>
+		</div>
+	</script>
+
+	<script type="text/x-handlebars" data-template-name="list">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ul>
+				{{#each links}}
+					<li>{{name}}</li>
+				{{/each}}
+				</ul>
+			</div>
+		</div>
+	</script>
+
+	<script src="../boilerplate/js/libs/jquery-1.10.2.min.js"></script>
+	<script src="../boilerplate/js/libs/handlebars-1.0.0.js"></script>
+	<script src="../boilerplate/js/libs/ember.js"></script>
+	<script src="../boilerplate/js/libs/ember-data.js"></script>
+	<script src="../boilerplate/js/libs/localstorage_adapter.js"></script>
+
+	<script src="js/application.js"></script>
+	<script src="js/models/label.js"></script>
+	<script src="js/models/link.js"></script>
+	<script src="js/router.js"></script>
+	<script src="js/controllers/app_controller.js"></script>
+	<script src="js/controllers/label_controller.js"></script>
+</body>
+</html>

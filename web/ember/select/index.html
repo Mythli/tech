@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>JS Bin</title>
+	<script src="http://emberjs.com.s3.amazonaws.com/getting-started/jquery.min.js"></script>
+	<script src="http://emberjs.com.s3.amazonaws.com/getting-started/handlebars.js"></script>
+	<script src="http://emberjs.com.s3.amazonaws.com/getting-started/ember.js"></script>
+	<script>
+		App = Ember.Application.create({});
+
+
+		App.ApplicationController = Ember.Controller.extend({
+			names: ["Yehuda", "Tom"]
+		});
+
+		alert("a");
+	</script>
+</head>
+<body>
+<script type="text/x-handlebars">
+	{{view Ember.Select content=naawdmes}}
+</script>
+
+</body>
+</html>

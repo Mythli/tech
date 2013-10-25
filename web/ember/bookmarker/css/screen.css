@@ -1,20 +1,41 @@
 body {
 	padding-top: 15px;
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	-ms-font-smoothing: antialiased;
+	-o-font-smoothing: antialiased;
+	font-smoothing: antialiased;
 }
 
 h1 {
 	text-transform: uppercase;
 }
 
+.list-inline {
+	margin-bottom: 0px;
+}
+
 .list-inline li {
-	padding: 0px;
+	padding: 2.5px 0px 2.5px 0px;
 }
 
-.list-inline .active,
-.list-inline .active:hover {
-	background-color: green;
+.btn a {
+	color: black;
+
 }
 
-#new-label-form {
+.btn a:hover {
+	text-decoration: none;
+}
+
+form {
 	margin-bottom: 5px;
+}
+
+#navigation {
+	margin-bottom: 50px;
+}
+
+input[type="submit"].btn {
+	width: 100%;
 }

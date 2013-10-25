@@ -1,46 +1,101 @@
 <!doctype html>
 <html>
 <head>
-	<title>Bookmarker</title>
+	<title>Bookmarker - Home</title>
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/screen.css" rel="stylesheet">
 </head>
 <body>
 	<script type="text/x-handlebars">
 		<div class="container">
-			<h1>Bookmarker</h1>
+			{{view Ember.Select content=names}}
+
+			<h1>{{title}}</h1>
+			<ul id="navigation" class="nav nav-pills">
+				{{#view App.NavView}}
+					{{#link-to "index"}}Home{{/link-to}}
+				{{/view}}
+				{{#view App.NavView}}
+					{{#link-to "about"}}About{{/link-to}}</li>
+				{{/view}}
+				{{#view App.NavView}}
+					{{#link-to "faq"}}FAQ{{/link-to}}
+				{{/view}}
+			</ul>
 			<div class="well">
-				<form id="new-label-form" {{action "newLabel" on="submit"}}>
-					{{input value=newLabelName class="form-control" placeholder="New Label"}}
-				</form>
-				<div class="panel panel-default">
-					<div class="panel-body">
-						<ul class="list-inline">
-							{{#each itemController="label"}}
-								<li>
-									<a href="#" {{bind-attr class=":label active:label-primary:label-default"}} {{action 'findLinks'}}>{{name}}</a>
-								</li>
-							{{/each}}
-						</ul>
-					</div>
-				</div>
 				{{outlet}}
 			</div>
 		</div>
 	</script>
 
-	<script type="text/x-handlebars" data-template-name="link">
+	<script type="text/x-handlebars" data-template-name="index">
+		<form {{action "newLabel" on="submit"}}>
+			<div class="row">
+				<div class="col-xs-10" style="padding-right: 5px;">
+					{{input value=newLabelName class="form-control" placeholder="New Label"}}
+				</div>
+				<div class="col-xs-2" style="padding-left: 5px;">
+					{{view Ember.Select content=names}}
+				</div>
+			</div>
+		</form>
 		<div class="panel panel-default">
 			<div class="panel-body">
-				<ul>
-					{{#each }}
-						<li>{{name}}</li>
+				<ul class="list-inline">
+					{{#each labels itemController="label"}}
+						<li>
+							<div class="btn-group btn-group-xs">
+								<button type="button" {{bind-attr class=":btn active:btn-primary:btn-default"}} {{action 'findLinks'}}>{{name}}</button>
+								<button type="button" {{bind-attr class=":btn active:btn-primary:btn-default"}} {{action 'delete'}}>
+									<span class="glyphicon glyphicon-remove"></span>
+								</button>
+							</div>
+						</li>
+					{{/each}}
+				</ul>
+			</div>
+		</div>
+		<form {{action "newLink" on="submit"}}>
+			<div class="row">
+				<div class="col-xs-5" style="padding-right: 5px;">
+					{{input value=newLinkName class="form-control" placeholder="Name"}}
+				</div>
+				<div class="col-xs-6" style="padding-left: 5px; padding-right: 5px;">
+					{{input value=linkUrl class="form-control" placeholder="Url"}}
+				</div>
+				<div class="col-xs-1" style="padding-left: 5px;">
+					<input type="submit" class="btn btn-primary" value="Neu">
+				</div>
+			</div>
+		</form>
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ul class="list-inline">
+					{{#each links itemController="link"}}
+						<li>
+							<div class="btn-group btn-group-xs">
+								<button type="button" class="btn btn-default">
+									<a target="_blank" {{bind-attr href=url}}>{{name}}</a>
+								</button>
+								<button type="button" {{bind-attr class=":btn active:btn-primary:btn-default"}} {{action 'delete'}}>
+									<span class="glyphicon glyphicon-remove"></span>
+								</button>
+							</div>
+						</li>
 					{{else}}
 						<li>No links to show in the active labels</li>
 					{{/each}}
 				</ul>
 			</div>
 		</div>
+	</script>
+
+	<script type="text/x-handlebars" data-template-name="about">
+		about
+	</script>
+
+	<script type="text/x-handlebars" data-template-name="faq">
+		faq
 	</script>
 
 	<script src="http://emberjs.com.s3.amazonaws.com/getting-started/jquery.min.js"></script>
@@ -51,8 +106,11 @@
 	<script src="js/application.js"></script>
 	<script src="js/router.js"></script>
 	<script src="js/controllers/app_controller.js"></script>
+	<script src="js/controllers/index_controller.js"></script>
 	<script src="js/controllers/label_controller.js"></script>
+	<script src="js/controllers/link_controller.js"></script>
 	<script src="js/models/label.js"></script>
 	<script src="js/models/link.js"></script>
+	<script src="js/views/nav_view.js"></script>
 </body>
 </html>

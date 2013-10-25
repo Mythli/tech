@@ -8,15 +8,13 @@
 <body>
 	<script type="text/x-handlebars">
 		<div class="container">
-			{{view Ember.Select content=names}}
-
-			<h1>{{title}}</h1>
+			<h1>Bookmarker - </h1>
 			<ul id="navigation" class="nav nav-pills">
 				{{#view App.NavView}}
 					{{#link-to "index"}}Home{{/link-to}}
 				{{/view}}
 				{{#view App.NavView}}
-					{{#link-to "about"}}About{{/link-to}}</li>
+					{{#link-to "about"}}About{{/link-to}}
 				{{/view}}
 				{{#view App.NavView}}
 					{{#link-to "faq"}}FAQ{{/link-to}}
@@ -31,11 +29,20 @@
 	<script type="text/x-handlebars" data-template-name="index">
 		<form {{action "newLabel" on="submit"}}>
 			<div class="row">
-				<div class="col-xs-10" style="padding-right: 5px;">
-					{{input value=newLabelName class="form-control" placeholder="New Label"}}
+				<div class="col-xs-8" style="padding-right: 5px;">
+					{{input value=newLabelName class="form-control" placeholder="Name"}}
+				</div>
+				<div class="col-xs-2" style="padding-left: 5px; padding-right: 5px;">
+					{{view Ember.Select
+						content=colors
+						optionValuePath="content.class"
+						optionLabelPath="content.color"
+						value="labelColor"
+						
+						classNames="form-control"}}
 				</div>
 				<div class="col-xs-2" style="padding-left: 5px;">
-					{{view Ember.Select content=names}}
+					<input type="submit" class="btn btn-primary" value="New Label">
 				</div>
 			</div>
 		</form>
@@ -45,8 +52,8 @@
 					{{#each labels itemController="label"}}
 						<li>
 							<div class="btn-group btn-group-xs">
-								<button type="button" {{bind-attr class=":btn active:btn-primary:btn-default"}} {{action 'findLinks'}}>{{name}}</button>
-								<button type="button" {{bind-attr class=":btn active:btn-primary:btn-default"}} {{action 'delete'}}>
+								<button type="button" {{bind-attr class=":btn colorClass"}} {{action 'findLinks'}}>{{name}}</button>
+								<button type="button" {{bind-attr class=":btn colorClass"}} {{action 'delete'}}>
 									<span class="glyphicon glyphicon-remove"></span>
 								</button>
 							</div>
@@ -60,11 +67,11 @@
 				<div class="col-xs-5" style="padding-right: 5px;">
 					{{input value=newLinkName class="form-control" placeholder="Name"}}
 				</div>
-				<div class="col-xs-6" style="padding-left: 5px; padding-right: 5px;">
+				<div class="col-xs-5" style="padding-left: 5px; padding-right: 5px;">
 					{{input value=linkUrl class="form-control" placeholder="Url"}}
 				</div>
-				<div class="col-xs-1" style="padding-left: 5px;">
-					<input type="submit" class="btn btn-primary" value="Neu">
+				<div class="col-xs-2" style="padding-left: 5px;">
+					<input type="submit" class="btn btn-primary" value="New Link">
 				</div>
 			</div>
 		</form>
@@ -98,10 +105,10 @@
 		faq
 	</script>
 
-	<script src="http://emberjs.com.s3.amazonaws.com/getting-started/jquery.min.js"></script>
-	<script src="http://emberjs.com.s3.amazonaws.com/getting-started/handlebars.js"></script>
-	<script src="http://emberjs.com.s3.amazonaws.com/getting-started/ember.js"></script>
-	<script src="http://emberjs.com.s3.amazonaws.com/getting-started/ember-data.js"></script>
+	<script src="../starter-kit/js/libs/jquery-1.9.1.js"></script>
+	<script src="../starter-kit/js/libs/handlebars-1.0.0.js"></script>
+	<script src="../starter-kit/js/libs/ember-1.1.1.js"></script>
+	<script src="../starter-kit/js/libs/ember-data-1.0.0-beta.3.js"></script>
 
 	<script src="js/application.js"></script>
 	<script src="js/router.js"></script>

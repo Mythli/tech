@@ -1,9 +1,12 @@
 App.IndexController = Ember.ObjectController.extend({
-	names: Ember.A([
-		"aa",
-		"bb"
-	]),
-	test: "TEST",
+	colors: [
+		{color: "White", class: "btn-default"},
+		{color: "Blue", class: "btn-info"},
+		{color: "Orange", class: "btn-warning"},
+		{color: "Red", class: "btn-danger"},
+		{color: "Transparent", class: "btn-link"}
+	],
+	labelColor: { color: "White", class: "btn-danger" },
 
 	selectedLabels:[],
 
@@ -13,9 +16,10 @@ App.IndexController = Ember.ObjectController.extend({
 				newLabel = this.get("newLabelName");
 
 			if(newLabel.length > 0) {
+
 				store.push("label", {
 					name: newLabel,
-					color: "yellow"
+					colorClass: this.get("labelColor")["class"]
 				});
 				this.set("newLabelName", "");
 			}

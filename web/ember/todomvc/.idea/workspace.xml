@@ -23,7 +23,7 @@
     <file path="$PROJECT_DIR$/../bookmarker/js/views/nav_view.js" changelist="79350575-aa54-493c-acf9-24d94ed4afe7" time="1382695647714" ignored="false" />
     <file path="$PROJECT_DIR$/../bookmarker/js/controllers/link_controller.js" changelist="79350575-aa54-493c-acf9-24d94ed4afe7" time="1382705855573" ignored="false" />
     <file path="/link_controller.js" changelist="79350575-aa54-493c-acf9-24d94ed4afe7" time="1382705822358" ignored="false" />
-    <file path="$PROJECT_DIR$/../select/index.html" changelist="79350575-aa54-493c-acf9-24d94ed4afe7" time="1382709598552" ignored="false" />
+    <file path="$PROJECT_DIR$/../select/index.html" changelist="79350575-aa54-493c-acf9-24d94ed4afe7" time="1382715283074" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +46,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="88" selection-start="1326" selection-end="1326" vertical-scroll-proportion="0.33333334">
+            <state line="67" column="65" selection-start="2003" selection-end="2003" vertical-scroll-proportion="0.75116277">
               <folding />
             </state>
           </provider>
@@ -116,8 +116,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/controllers/todo_controller.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -250,7 +250,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25681493" sideWeight="0.6713092" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26040173" sideWeight="0.6713092" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3286908" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -326,6 +326,41 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/js/views/edit_todo_view.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="28" selection-start="135" selection-end="135" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/application.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controllers/todo_controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="12" selection-start="356" selection-end="441" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controllers/todos_controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="58" selection-start="549" selection-end="549" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="4" selection-start="306" selection-end="362" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="6" selection-start="145" selection-end="145" vertical-scroll-proportion="0.0">
@@ -398,7 +433,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="88" selection-start="1326" selection-end="1326" vertical-scroll-proportion="0.33333334">
+        <state line="67" column="65" selection-start="2003" selection-end="2003" vertical-scroll-proportion="0.75116277">
           <folding />
         </state>
       </provider>

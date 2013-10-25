@@ -2,25 +2,38 @@
 <html>
 <head>
 	<meta charset=utf-8 />
-	<title>JS Bin</title>
-	<script src="http://emberjs.com.s3.amazonaws.com/getting-started/jquery.min.js"></script>
-	<script src="http://emberjs.com.s3.amazonaws.com/getting-started/handlebars.js"></script>
-	<script src="http://emberjs.com.s3.amazonaws.com/getting-started/ember.js"></script>
-	<script>
-		App = Ember.Application.create({});
+	<title>Select Test</title>
 
 
-		App.ApplicationController = Ember.Controller.extend({
-			names: ["Yehuda", "Tom"]
-		});
-
-		alert("a");
-	</script>
 </head>
 <body>
 <script type="text/x-handlebars">
-	{{view Ember.Select content=naawdmes}}
+	<h1>{{title}}</h1>
+	{{view Ember.Select
+		content=programmers
+		optionValuePath="content.id"
+		optionLabelPath="content.firstName"
+		value=currentProgrammer.id}}
 </script>
 
+<script src="../starter-kit/js/libs/jquery-1.9.1.js"></script>
+<script src="../starter-kit/js/libs/handlebars-1.0.0.js"></script>
+<script src="../starter-kit/js/libs/ember-1.1.1.js"></script>
+<script>
+	App = Ember.Application.create({});
+
+
+	App.ApplicationController = Ember.Controller.extend({
+		title: "Select Test",
+		programmers: [
+			{firstName: "Yehuda", id: 1},
+			{firstName: "Tom",    id: 2}
+		],
+		currentProgrammer: {
+			id: 2
+		}
+
+	});
+</script>
 </body>
 </html>

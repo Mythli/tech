@@ -1,5 +1,3 @@
-App.title = "Bookmarker";
-
 App.Router.map(function() {
 	this.route("about");
 	this.route("faq");
@@ -15,7 +13,7 @@ App.IndexRoute = Ember.Route.extend({
 	model: function(params) {
 		return {
 			labels: this.get("store").find("label"),
-			// this can't be correct
+			// TODO: this is probably wrong.
 			links: Ember.A()
 		};
 	}
@@ -23,12 +21,12 @@ App.IndexRoute = Ember.Route.extend({
 
 App.AboutRoute = Ember.Route.extend({
 	activate: function() {
-		$(document).attr('title', App.title+" - About");
-	},
+		$(document).attr("title", App.title+" - About");
+	}
 });
 
 App.FaqRoute = Ember.Route.extend({
 	activate: function() {
 		$(document).attr('title', App.title+" - FAQ");
-	},
+	}
 });

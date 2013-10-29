@@ -1,6 +1,13 @@
 App.LabelController = Ember.ObjectController.extend({
 	needs:["index"],
 	active: false,
+	cssClass: function() {
+		if(this.get('active')) {
+			return 'btn-primary';
+		} else {
+			return this.get('colorClass');
+		}
+	}.property('colorClass', 'active'),
 
 	actions: {
 		findLinks: function() {
@@ -17,7 +24,7 @@ App.LabelController = Ember.ObjectController.extend({
 			this.send('activeLabel');
 		},
 
-		delete: function() {
+		remove: function() {
 			var indexController = this.get('controllers.index'),
 				label = this.get('model'),
 				linksPromise = this.get('store').find('link');
@@ -30,9 +37,10 @@ App.LabelController = Ember.ObjectController.extend({
 						if(linkLabelsIds.contains(label.get("id"))) {
 							if(linkLabelsIds.get("length") == 1) {
 								console.log("delete link: "+link.get("name"));
-								//indexController.get("links").removeObject(link);
-								link.deleteRecord();
-								link.save();
+								// TODO: this is probably wrong.
+								indexController.get("links").removeObject(link);
+								//link.deleteRecord();
+								//link.save();
 							}
 						}
 				});

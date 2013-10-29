@@ -1,43 +1,52 @@
 App.IndexController = Ember.ObjectController.extend({
 	colors: [
-		{color: "White", class: "btn-default"},
-		{color: "Blue", class: "btn-info"},
-		{color: "Orange", class: "btn-warning"},
-		{color: "Red", class: "btn-danger"},
-		{color: "Transparent", class: "btn-link"}
+		{color: "White", cssClass: "btn-default"},
+		{color: "Blue", cssClass: "btn-info"},
+		{color: "Orange", cssClass: "btn-warning"},
+		{color: "Red", cssClass: "btn-danger"},
+		{color: "Transparent", cssClass: "btn-link"}
 	],
-	labelColor: { color: "White", class: "btn-danger" },
+
+	labelColor: {
+		cssClass: "btn-default"
+	},
 
 	selectedLabels:[],
 
 	actions: {
 		newLabel: function() {
 			var store = this.get("store"),
-				newLabel = this.get("newLabelName");
+				newLabel = this.get("labelName");
 
 			if(newLabel.length > 0) {
-
 				store.push("label", {
 					name: newLabel,
-					colorClass: this.get("labelColor")["class"]
+					colorClass: this.get("labelColor").cssClass
 				});
-				this.set("newLabelName", "");
+				this.set("labelName", "");
 			}
 		},
 
 		newLink: function() {
 			var store = this.get("store"),
-				newLink = this.get("newLinkName"),
+				linkName = this.get("linkName"),
 				linkUrl = this.get("linkUrl");
 
 			if(this.selectedLabels.length > 0) {
-				if(newLink.length > 0) {
-					store.push("link", {
-						name: newLink,
+				if(linkName.length > 0 && linkUrl.length > 0) {
+					// TODO: this is probably wrong.
+					this.get("links").addObject({
+						name: linkName,
 						url: linkUrl,
 						labels: this.selectedLabels
 					});
-					this.set("newLinkName", "");
+					/*store.push("link", {
+						name: newLink,
+						url: linkUrl,
+						labels: this.selectedLabels
+					});*/
+					this.set("linkName", "");
+					this.set("linkUrl", "");
 				}
 			} else {
 				alert("You have to select a label!");

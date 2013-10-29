@@ -8,7 +8,7 @@
 <body>
 	<script type="text/x-handlebars">
 		<div class="container">
-			<h1>Bookmarker - </h1>
+			<h1>Bookmarker - {{title}}</h1>
 			<ul id="navigation" class="nav nav-pills">
 				{{#view App.NavView}}
 					{{#link-to "index"}}Home{{/link-to}}
@@ -30,16 +30,17 @@
 		<form {{action "newLabel" on="submit"}}>
 			<div class="row">
 				<div class="col-xs-8" style="padding-right: 5px;">
-					{{input value=newLabelName class="form-control" placeholder="Name"}}
+					{{input value=labelName class="form-control" placeholder="Name"}}
 				</div>
 				<div class="col-xs-2" style="padding-left: 5px; padding-right: 5px;">
+
 					{{view Ember.Select
 						content=colors
-						optionValuePath="content.class"
+						optionValuePath="content.cssClass"
 						optionLabelPath="content.color"
-						value="labelColor"
-						
-						classNames="form-control"}}
+						value=labelColor.cssClass
+						classNames="form-control"
+					}}
 				</div>
 				<div class="col-xs-2" style="padding-left: 5px;">
 					<input type="submit" class="btn btn-primary" value="New Label">
@@ -47,13 +48,16 @@
 			</div>
 		</form>
 		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">{{labels.length}} Labels</h3>
+			</div>
 			<div class="panel-body">
 				<ul class="list-inline">
 					{{#each labels itemController="label"}}
 						<li>
 							<div class="btn-group btn-group-xs">
-								<button type="button" {{bind-attr class=":btn colorClass"}} {{action 'findLinks'}}>{{name}}</button>
-								<button type="button" {{bind-attr class=":btn colorClass"}} {{action 'delete'}}>
+								<button type="button" {{bind-attr class=":btn cssClass"}} {{action 'findLinks'}}>{{name}}</button>
+								<button type="button" {{bind-attr class=":btn cssClass"}} {{action 'remove'}}>
 									<span class="glyphicon glyphicon-remove"></span>
 								</button>
 							</div>
@@ -62,39 +66,43 @@
 				</ul>
 			</div>
 		</div>
-		<form {{action "newLink" on="submit"}}>
-			<div class="row">
-				<div class="col-xs-5" style="padding-right: 5px;">
-					{{input value=newLinkName class="form-control" placeholder="Name"}}
+		{{#if selectedLabels.length}}
+			<form {{action "newLink" on="submit"}}>
+				<div class="row">
+					<div class="col-xs-5" style="padding-right: 5px;">
+						{{input value=linkName class="form-control" placeholder="Name"}}
+					</div>
+					<div class="col-xs-5" style="padding-left: 5px; padding-right: 5px;">
+						{{input value=linkUrl class="form-control" placeholder="Url"}}
+					</div>
+					<div class="col-xs-2" style="padding-left: 5px;">
+						<input type="submit" class="btn btn-primary" value="New Link">
+					</div>
 				</div>
-				<div class="col-xs-5" style="padding-left: 5px; padding-right: 5px;">
-					{{input value=linkUrl class="form-control" placeholder="Url"}}
+			</form>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">{{links.length}} Links</h3>
 				</div>
-				<div class="col-xs-2" style="padding-left: 5px;">
-					<input type="submit" class="btn btn-primary" value="New Link">
+				<div class="panel-body">
+					<ul class="list-inline">
+						{{#each links itemController="link"}}
+							<li>
+								<div class="btn-group btn-group-xs">
+									<button type="button" class="btn btn-default">
+										<a target="_blank" {{bind-attr href=url}}>{{name}}</a>
+									</button>
+									<button type="button" {{bind-attr class=":btn active:btn-primary:btn-default"}} {{action 'remove'}}>
+										<span class="glyphicon glyphicon-remove"></span>
+									</button>
+								</div>
+							</li>
+						{{/each}}
+					</ul>
 				</div>
 			</div>
-		</form>
-		<div class="panel panel-default">
-			<div class="panel-body">
-				<ul class="list-inline">
-					{{#each links itemController="link"}}
-						<li>
-							<div class="btn-group btn-group-xs">
-								<button type="button" class="btn btn-default">
-									<a target="_blank" {{bind-attr href=url}}>{{name}}</a>
-								</button>
-								<button type="button" {{bind-attr class=":btn active:btn-primary:btn-default"}} {{action 'delete'}}>
-									<span class="glyphicon glyphicon-remove"></span>
-								</button>
-							</div>
-						</li>
-					{{else}}
-						<li>No links to show in the active labels</li>
-					{{/each}}
-				</ul>
-			</div>
-		</div>
+		{{else}}
+		{{/if}}
 	</script>
 
 	<script type="text/x-handlebars" data-template-name="about">
@@ -114,6 +122,8 @@
 	<script src="js/router.js"></script>
 	<script src="js/controllers/app_controller.js"></script>
 	<script src="js/controllers/index_controller.js"></script>
+	<script src="js/controllers/about_controller.js"></script>
+	<script src="js/controllers/faq_controller.js"></script>
 	<script src="js/controllers/label_controller.js"></script>
 	<script src="js/controllers/link_controller.js"></script>
 	<script src="js/models/label.js"></script>

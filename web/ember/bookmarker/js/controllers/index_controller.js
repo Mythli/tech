@@ -11,7 +11,8 @@ App.IndexController = Ember.ObjectController.extend({
 		cssClass: "btn-default"
 	},
 
-	selectedLabels:[],
+	selectedLabels: Ember.A(),
+	filteredLinks: Ember.A(),
 
 	actions: {
 		newLabel: function() {
@@ -28,45 +29,44 @@ App.IndexController = Ember.ObjectController.extend({
 		},
 
 		newLink: function() {
-			var store = this.get("store"),
-				linkName = this.get("linkName"),
+			var linkName = this.get("linkName"),
 				linkUrl = this.get("linkUrl");
 
 			if(this.selectedLabels.length > 0) {
 				if(linkName.length > 0 && linkUrl.length > 0) {
 					// TODO: this is probably wrong.
-					this.get("links").addObject({
+					/*this.get("links").addObject({
 						name: linkName,
 						url: linkUrl,
 						labels: this.selectedLabels
-					});
-					/*store.push("link", {
-						name: newLink,
-						url: linkUrl,
-						labels: this.selectedLabels
 					});*/
+					this.store.push("link", {
+						name: linkName,
+						url: linkUrl,
+						labels: this.get('selectedLabels').copy()
+					});
 					this.set("linkName", "");
 					this.set("linkUrl", "");
+					this.send("showLinks");
 				}
 			} else {
 				alert("You have to select a label!");
 			}
 		},
 
-		activeLabel: function(){
+		showLinks: function(){
 			var labelsIds = this.get('selectedLabels').mapProperty('id'),
-				linksPromise = this.get('store').find('link'),
+				linksPromise = this.get("store").find("link"),
 				_this = this;
 
 			linksPromise.then(
 				function(links){
+					_this.set("filteredLinks", Ember.A());
 					links.forEach(function(link) {
 						var linkLabels = link.get('labels'),
-							linkLabelsIds = linkLabels.mapProperty('id');
-						if(!Ember.isEmpty(Ember.EnumerableUtils.intersection(labelsIds,linkLabelsIds))){
-							_this.get("links").addObject(link);
-						} else {
-							_this.get("links").removeObject(link);
+							linkLabelIds = linkLabels.mapProperty('id');
+						if(!Ember.isEmpty(Ember.EnumerableUtils.intersection(labelsIds, linkLabelIds))){
+							_this.get("filteredLinks").addObject(link);
 						}
 					});
 				}

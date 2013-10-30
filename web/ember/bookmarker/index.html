@@ -82,11 +82,11 @@
 			</form>
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title">{{links.length}} Links</h3>
+					<h3 class="panel-title">{{filteredLinks.length}} Links</h3>
 				</div>
 				<div class="panel-body">
 					<ul class="list-inline">
-						{{#each links itemController="link"}}
+						{{#each filteredLinks itemController="link"}}
 							<li>
 								<div class="btn-group btn-group-xs">
 									<button type="button" class="btn btn-default">

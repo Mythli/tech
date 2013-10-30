@@ -21,7 +21,7 @@ App.LabelController = Ember.ObjectController.extend({
 			{
 				selectedLabels.removeObject(this.get('model'));
 			}
-			this.send('activeLabel');
+			this.send('showLinks');
 		},
 
 		remove: function() {
@@ -34,19 +34,20 @@ App.LabelController = Ember.ObjectController.extend({
 					var linkLabels = link.get('labels'),
 						linkLabelsIds = linkLabels.mapProperty('id');
 
-						if(linkLabelsIds.contains(label.get("id"))) {
-							if(linkLabelsIds.get("length") == 1) {
-								console.log("delete link: "+link.get("name"));
-								// TODO: this is probably wrong.
-								indexController.get("links").removeObject(link);
-								//link.deleteRecord();
-								//link.save();
-							}
+					if(linkLabelsIds.contains(label.get("id"))) {
+						if(linkLabelsIds.get("length") == 1) {
+							console.log("delete link: "+link.get("name"));
+							// TODO: this is probably wrong.
+							//indexController.get("links").removeObject(link);
+							link.deleteRecord();
+							link.save();
 						}
+					}
+					//this.get("model").save();
 				});
 
 				label.deleteRecord();
-				label.save();
+				//label.save();
 			});
 		}
 	}

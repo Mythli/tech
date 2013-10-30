@@ -14,7 +14,7 @@ App.IndexRoute = Ember.Route.extend({
 		return {
 			labels: this.get("store").find("label"),
 			// TODO: this is probably wrong.
-			links: Ember.A()
+			links: this.get("store").find("link")
 		};
 	}
 });

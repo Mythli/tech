@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+	<title>Bookmarker - Home</title>
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+
+	<script src="../starter-kit/js/libs/jquery-1.9.1.js"></script>
+	<script src="../starter-kit/js/libs/handlebars-1.0.0.js"></script>
+	<script src="../starter-kit/js/libs/ember-1.1.1.js"></script>
+	<script src="js/lib/chess.js"></script>
+
+	<script src="js/application.js"></script>
+	<script src="js/router.js"></script>
+	<script src="js/controllers/game_controller.js"></script>
+	<script src="js/views/game_view.js"></script>
+	<script src="js/views/row_view.js"></script>
+	<script src="js/views/cell_view.js"></script>
+</head>
+<body>
+	<script type="text/x-handlebars"
+		data-template-name="row">
+		{{#each this}}
+			{{view App.CellView
+			colorBinding="color"
+			pieceBinding="piece"
+			xBinding="x"
+			yBinding="y"}}
+		{{/each}}
+	</script>
+
+	<script type="text/x-handlebars"
+		data-template-name="game">
+		<table class="chess-board">
+			{{#each rows}}
+				{{view App.RowView}}
+			{{/each}}
+		</table>
+	</script>
+</body>
+</html>

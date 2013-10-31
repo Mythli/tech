@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+	<title>Bookmarker - Home</title>
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/lib/mocha.css" rel="stylesheet">
+	<link href="css/screen.css" rel="stylesheet">
+
+	<script src="../starter-kit/js/libs/jquery-1.9.1.js"></script>
+	<script src="../starter-kit/js/libs/handlebars-1.0.0.js"></script>
+	<script src="../starter-kit/js/libs/ember-1.1.1.js"></script>
+
+	<script src="js/Application.js"></script>
+</head>
+<body>
+	<script type="text/x-handlebars" data-template-name='index'>
+
+		<h1>Notifications</h1>
+
+		<div id="right-side-view">
+			{{outlet 'rightside'}}
+		</div>
+
+		{{yield}}
+	</script>
+
+	<script type="text/x-handlebars" data-template-name='notifications'>
+
+		<ul class="notifications">
+			{{#each notification in controller}}
+				<li {{bindAttr class="notification.subject.type"}}>
+					{{#linkTo "notification" notification}}
+						<p>{{notification.subject.title}}</p>
+					{{/linkTo}}
+				</li>
+			{{/each}}
+		</ul>
+
+	</script>
+
+	<script type="text/x-handlebars" data-template-name='notification'>
+		<p>{{subject.title}}</p>
+		<p>{{subject.type}}</p>
+
+		<p>{{updated_at}}</p>
+
+		<p>{{login}}</p>
+		<img {{bindAttr src=data.user.avatar_url}}>
+		<p>{{data.body}}</p>
+	</script>
+</body>
+</html>

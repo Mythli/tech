@@ -2,21 +2,62 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="825d8b60-0487-4d02-8268-4cfcdc4b2550" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/index_controller.js" afterPath="$PROJECT_DIR$/js/controllers/index_controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/label_controller.js" afterPath="$PROJECT_DIR$/js/controllers/label_controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/link_controller.js" afterPath="$PROJECT_DIR$/js/controllers/link_controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/router.js" afterPath="$PROJECT_DIR$/js/router.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../select/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../select/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\learnEmber\.idea\.name" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\learnEmber\.idea\codeStyleSettings.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\learnEmber\.idea\encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\learnEmber\.idea\learnEmber.iml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\learnEmber\.idea\misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\learnEmber\.idea\modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\learnEmber\.idea\scopes\scope_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\learnEmber\.idea\vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\learnEmber\.idea\workspace.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\learnEmber\index.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\learnEmber\js\application.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\learnEmber\js\controllers\favoritesController.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\learnEmber\js\controllers\indexController.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\learnEmber\js\demo\objectmodel\aggregateData.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\learnEmber\js\demo\objectmodel\bindings.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\learnEmber\js\demo\objectmodel\classDemo.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\learnEmber\js\demo\objectmodel\computedProperties.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\learnEmber\js\libs\ember-data.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\learnEmber\js\libs\ember.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\learnEmber\js\libs\handlebars-1.0.0.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\learnEmber\js\libs\jquery-1.10.2.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\learnEmber\js\libs\localstorage_adapter.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\learnEmber\js\router.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\select\.idea\.name" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\select\.idea\encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\select\.idea\misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\select\.idea\modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\select\.idea\scopes\scope_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\select\.idea\select.iml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\select\.idea\vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\select\.idea\workspace.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\select\index.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\twitterer\.idea\.name" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\twitterer\.idea\encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\twitterer\.idea\misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\twitterer\.idea\modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\twitterer\.idea\scopes\scope_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\twitterer\.idea\twitterer.iml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\twitterer\.idea\vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\twitterer\.idea\workspace.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anhalt\Entwicklung\GitHub\tech\web\ember\twitterer\index.html" afterPath="" />
     </list>
     <ignored path="bookmarker.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="825d8b60-0487-4d02-8268-4cfcdc4b2550" time="1383121189854" ignored="false" />
+    <file path="/Dummy.txt" changelist="825d8b60-0487-4d02-8268-4cfcdc4b2550" time="1383145923067" ignored="false" />
     <file path="/index_controller.js" changelist="825d8b60-0487-4d02-8268-4cfcdc4b2550" time="1383133320075" ignored="false" />
-    <file path="/index.html" changelist="825d8b60-0487-4d02-8268-4cfcdc4b2550" time="1383126551348" ignored="false" />
+    <file path="/index.html" changelist="825d8b60-0487-4d02-8268-4cfcdc4b2550" time="1383148265779" ignored="false" />
     <file path="/router.js" changelist="825d8b60-0487-4d02-8268-4cfcdc4b2550" time="1383126378697" ignored="false" />
     <file path="/link_controller.js" changelist="825d8b60-0487-4d02-8268-4cfcdc4b2550" time="1383128414824" ignored="false" />
+    <file path="$PROJECT_DIR$/../github-stream/test.hbs.html" changelist="825d8b60-0487-4d02-8268-4cfcdc4b2550" time="1383146343601" ignored="false" />
+    <file path="$PROJECT_DIR$/../github-stream/test.hbs" changelist="825d8b60-0487-4d02-8268-4cfcdc4b2550" time="1383146365067" ignored="false" />
+    <file path="$PROJECT_DIR$/../github-stream/index.html" changelist="825d8b60-0487-4d02-8268-4cfcdc4b2550" time="1383149086136" ignored="false" />
+    <file path="$PROJECT_DIR$/../github-stream/chai.js" changelist="825d8b60-0487-4d02-8268-4cfcdc4b2550" time="1383147717300" ignored="false" />
+    <file path="$PROJECT_DIR$/../github-stream/testing_setup.js" changelist="825d8b60-0487-4d02-8268-4cfcdc4b2550" time="1383148169058" ignored="false" />
+    <file path="$PROJECT_DIR$/../github-stream/mocha.js" changelist="825d8b60-0487-4d02-8268-4cfcdc4b2550" time="1383148978042" ignored="false" />
+    <file path="$PROJECT_DIR$/../github-stream/mocha.css" changelist="825d8b60-0487-4d02-8268-4cfcdc4b2550" time="1383149050073" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,10 +77,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="48" selection-start="789" selection-end="789" vertical-scroll-proportion="-4.6666665">
+            <state line="120" column="45" selection-start="3790" selection-end="3790" vertical-scroll-proportion="3.5726795">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="screen.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/screen.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="0" selection-start="354" selection-end="354" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -117,15 +167,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="label_controller.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/controllers/label_controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="52" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.58096826">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -196,6 +237,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -298,17 +340,16 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="preferences.fileTypes" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../github-stream" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -366,10 +407,10 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.89636606" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20157818" sideWeight="0.8972222" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20444763" sideWeight="0.89693594" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10277778" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10306407" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -482,11 +523,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/screen.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="27" selection-start="0" selection-end="509" vertical-scroll-proportion="0.25625" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/models/label.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="22" selection-start="0" selection-end="332" vertical-scroll-proportion="0.0">
@@ -522,16 +558,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="48" selection-start="789" selection-end="789" vertical-scroll-proportion="-4.6666665">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers/link_controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="24" selection-start="367" selection-end="367" vertical-scroll-proportion="0.0">
@@ -548,9 +574,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers/label_controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="52" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.58096826">
+        <state line="39" column="52" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/screen.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="0" selection-start="354" selection-end="354" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="120" column="45" selection-start="3790" selection-end="3790" vertical-scroll-proportion="3.5726795">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
   </component>

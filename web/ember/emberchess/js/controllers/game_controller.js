@@ -3,9 +3,12 @@ App.GameController = Ember.ArrayController.extend({
 		this._super();
 		this.send('gameChanged');
 	},
+	gameOver: function() {
+		return App.chessEngine.game_over();
+	}.property('rows'),
 	actions: {
 		gameChanged: function() {
-			this.set('rows', App.chessEngine.json());
+			this.set('rows', App.chessEngine.toEmber());
 		}
 	}
 });

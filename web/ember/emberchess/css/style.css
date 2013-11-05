@@ -54,3 +54,22 @@ td {
 .black.king {
   background-image: url('images/black-king.png');
 }
+
+.white {
+	background-color: white;
+}
+.silver {
+	background-color: silver;
+}
+
+.default {
+	border: 1px black solid;
+}
+.white.highlight {
+	border: 1px blue solid;
+	background-color: #f0f8ff;
+}
+.silver.highlight {
+	border: 1px blue solid;
+	background-color: #8ee5ee;
+}
